@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: honeydew;
+  font: 12pt Georgia, 'DejaVu Serif', serif;
+  line-height: 140%;
+  max-width:72em;
+  width: 60em;
+  padding:1em;
+  margin: 2em auto 2em auto;
+}
+
+pre.jsinput { background-color: white; font-family: monospace;
+    margin-top:0em; margin-bottom:0em;
+    display:none;
+}
+
+div.jsplain { font-family: monospace;
+}
+
+
+div.jsresult {
+    margin-top:0em; margin-bottom:0em;
+    /\* background-color: #fbf6df; \*/
+    /\* display:inline; \*/
+}
+div.jsresultdone {
+    background-color: #FFD55E;
+    margin-top:0em; margin-bottom:0em;
+    /\* display:inline; \*/
+}
+
+pre.yamlinput { background-color: white; font-family: monospace;
+    margin-top:0em; margin-bottom:0em;
+    display:none;
+}
+
+div.yamlplain { font-family: monospace;
+}
+
+
+div.yamlresult {
+    /\* margin-top:0em; margin-bottom:0em; \*/
+    /\* background-color: #fbf6df; \*/
+    /\* display:inline; \*/
+}
