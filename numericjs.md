@@ -43,3 +43,5 @@ y = numeric.transpose(sol.y);
 
 plot([numeric.transpose([y[0],y[1]])])
 ```
+
+See [here](numericjs.md) for the Markdown code for this page.
