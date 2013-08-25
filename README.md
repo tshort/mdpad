@@ -76,10 +76,10 @@ graphing. I've tried out and included Flot and HighCharts in
 *YAML* -- Enter data into JavaScript using [YAML](www.yaml.org). Here
 is an example:
 
-```yaml name=d
-fred: 27
-wilma: [1,2,3]
-```
+    ```yaml name=d
+    fred: 27
+    wilma: [1,2,3]
+    ```
 
 Now, in a JavaScript block, you can access `d.fred`. 
 
@@ -139,7 +139,7 @@ handle input blocks and form elements.
 ## Current status
 
 Everything's pretty much alpha stage right now. The main code is less
-than 200 lines of code. Many of the libraries used (Flot, yaml-js,
+than 200 lines of code. Many of the libraries used (Flot, yaml-js, showdown,
 etc.) are pretty mature.
 
 
