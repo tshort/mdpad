@@ -150,5 +150,6 @@ Everything's pretty much alpha stage right now. The main code is less
 than 200 lines of code. Many of the libraries used (Flot, yaml-js, showdown,
 etc.) are pretty mature.
 
+[Github source](https://github.com/tshort/mdpad)
 
-
+MIT licensed.
