@@ -16,6 +16,14 @@ $(document).ready(function() {
             $(':input').change(function() {
                 calculate();
             });
+           $(":input").keypress(function (e) {
+                  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                      calculate();
+                      return false;
+                  } else {
+                      return true;
+                  }
+              });
         },
         error: function (response) {
             $("#mdpad_error_div").html("<span class='color-scheme-message'>Error reading file.</span>");

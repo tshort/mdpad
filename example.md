@@ -122,11 +122,10 @@ Here's plotting with the
 [Flot package](http://www.flotcharts.org).
 
 ```yaml js=dform
-html :
-    - name : k
-      caption : k
-      type : number
-      value : 1.0
+name : k
+caption : k
+type : number
+value : 1.0
 ```
 
 
@@ -160,24 +159,29 @@ Here's a form entry with autocomplete added. Type characters to enter
 a US state.
 
 ```yaml js=dform
-html :
-    - name : state
-      caption : State
-      type : text
-      autocomplete: 
-          source: [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District Of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, PALAU, Pennsylvania, PUERTO RICO, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming]
+name : state
+caption : State
+type : text
+autocomplete: 
+    source: [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District Of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, PALAU, Pennsylvania, PUERTO RICO, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming]
 ```
 
 Here's a custom date entry form using jQuery-UI and DForm:
 
 ```yaml js=dform
-html :
-    - name : date
-      caption : Date
-      type : text
-      value : 06/01/2013
-      datepicker:
+html:
+  - name : date
+    caption : Date
+    type : text
+    value : 06/01/2013
+    datepicker:
 ```
+
+```js 
+println("state = " + state)
+println("date = " + date)
+```
+
 
 # Generate markdown
 
