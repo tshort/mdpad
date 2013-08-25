@@ -45,7 +45,7 @@ Markdown:
     
 When run, it will look like this in a browser:
 
-![mdpad screen capture](https://raw.github.com/tshort/mdpad/master/mdpad_screenshot.png)
+![mdpad screen capture](https://tshort.github.com/mdpad/mdpad_screenshot.png)
 
 In the JavaScript block header, you can specify the result type as
 `markdown` for Markdown output (also useful for HTML, since Markdown
