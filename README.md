@@ -1,6 +1,8 @@
-# *md-pad*: Live Markdown pages with embedded JavaScript and YAML
+# *mdpad*
 
-*md-pad* pages are meant to be an easy way to make simple web
+## Live, interactive Markdown pages with embedded JavaScript and YAML
+
+*mdpad* pages are meant to be an easy way to make simple web
 interfaces or workbooks. These can be hosted as static pages.
 Interactivity is provided by JavaScript. 
 
@@ -38,7 +40,7 @@ Markdown:
     
 When run, it will look like this in a browser:
 
-![md-pad screen capture](https://raw.github.com/tshort/md-pad/master/mdpad_screenshot.png)
+![mdpad screen capture](https://raw.github.com/tshort/mdpad/master/mdpad_screenshot.png)
 
 In the JavaScript block header, you can specify the result type as
 `markdown` for Markdown output (also useful for HTML, since Markdown
@@ -53,17 +55,17 @@ text box (a string). The default value is "3.0".
 
 Here are several examples
 
-* [example.md](https://raw.github.com/tshort/md-pad/master/mdpad.html?example.md)
+* [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
   -- Covers forms, data input, and plotting
 
-* [numericjs.md](https://raw.github.com/tshort/md-pad/master/mdpad.html?numericjs.md)
+* [numericjs.md](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
      package.  
 
-* [mathjs.md](https://raw.github.com/tshort/md-pad/master/mdpad.html?mathjs.md)
+* [mathjs.md](https://tshort.github.com/mdpad/mdpad.html?mathjs.md)
   -- Example using the [mathjs](http://mathjs.org/) package.  
 
-* [d3.md](https://raw.github.com/tshort/md-pad/master/mdpad-d3.html?d3.md)
+* [d3.md](https://tshort.github.com/mdpad/mdpad_d3.html?d3.md)
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
 
@@ -100,7 +102,7 @@ You do need to view the page using a server. Here's a typical URL:
     http://localhost:2000/mdpad.html?example.md
 
 Here, I'm running a server on my local computer on port 2000. The main
-html file is `mdpad.html`. This loads the *md-pad* page `example.md`.
+html file is `mdpad.html`. This loads the *mdpad* page `example.md`.
 The base html file is used to load the appropriate libraries. You may
 want to change this to include custom headers or footers for your
 site, and you may want to change the JavaScript libraries loaded by
