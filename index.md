@@ -1,4 +1,11 @@
-# *mdpad*: Live Markdown pages with embedded JavaScript and YAML
+---
+layout: default
+title:  mdpad - Live Markdown Pad
+---
+
+# *mdpad*
+
+## Live, interactive Markdown pages with embedded JavaScript and YAML
 
 *mdpad* pages are meant to be an easy way to make simple web
 interfaces or workbooks. These can be hosted as static pages.
