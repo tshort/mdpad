@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{ page.title }}</title>
+  <meta name="author" content="Tom Short" />
+  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount','']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.type = 'text/javascript';
+      ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga,s);
+    })();
+  </script>
+</head>
+<body>
+
+<div id="site" class="site">
+{{ content }}
+</div>
+
+<br/><br/><!-- hack to give some space at the bottom -->
+
+<script type="text/javascript">
+  (function() {
+    var links = document.getElementsByTagName('a');
+    var regex = new RegExp('^http://([a-z]+\.)*'+window.location.hostname);
+    for (var i=0; i < links.length; i++)
+       if (!links[i].href.match(regex))
+           links[i].setAttribute('target','_blank');
+  })()
+</script>
+</body>
+</html>

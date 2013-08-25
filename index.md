@@ -134,13 +134,14 @@ REPL.
 handle input blocks and form elements. 
 
 *Form inputs* -- The modifications for form elements are adapted from 
-[here](https://github.com/brikis98/wmd). 
+[here](https://github.com/brikis98/wmd). Only one element is included
+right now.
 
 *Plotting* -- Plotting comes from the
 [Flot](http://www.flotcharts.org/) package. 
 
-*YAML* -- Plotting comes from the
-[Flot](http://www.flotcharts.org/) package. 
+*YAML* -- YAML conversion comes from the
+[js-yaml](https://github.com/nodeca/js-yaml) package. 
 
 
 ## Current status
