@@ -193,3 +193,5 @@ Here is an example:
 println("## generated heading")
 println("some *italic* and **bold** text")
 ```
+
+[mdpad main page](https://github.com/tshort/mdpad/tree/gh-pages)

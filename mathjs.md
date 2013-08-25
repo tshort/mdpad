@@ -42,3 +42,5 @@ println(math.multiply(a, b))
 
 
 See [here](mathjs.md) for the Markdown code for this page.
+
+[mdpad main page](https://github.com/tshort/mdpad/tree/gh-pages)
