@@ -20,7 +20,7 @@ using a Markdown extension for forms are also converted to JavaScript
 variables.
 
 Here is an example of a Javascript code input section. When the input
-`alpha` is updated, the page will recalculate, and the output of each
+`freq` is updated, the page will recalculate, and the output of each
 code section will appear below the input. Here's some example
 Markdown:
 
@@ -54,7 +54,8 @@ output (not implemented, yet).
 
 In the example above, a text entry box is specified with `freq` =
 `___(3.0)`. In JavaScript, `freq` is assigned to the value entered in the
-text box (a string). The default value is "3.0".
+text box (a string). The default value is "3.0". Any form elements
+will be translated into JavaScript variables. 
 
 ## Examples
 
