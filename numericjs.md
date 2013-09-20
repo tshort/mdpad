@@ -37,11 +37,9 @@ f = function(t,x) {
           x[0]*x[1]-(8/3)*x[2]];
 }
 sol = numeric.dopri(0,20,[-1,3,4],f,1e-6,2000);
-y = numeric.transpose(sol.y);
 
-<!-- series = _.zip(x,y)       // converts to [[x1,y1],[x2,y2],...] -->
+plot([sol.y])
 
-plot([numeric.transpose([y[0],y[1]])])
 ```
 
 See [here](numericjs.md) for the Markdown code for this page.

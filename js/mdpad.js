@@ -1,5 +1,6 @@
 mdpad = function() {
 
+var deferred = new $.Deferred();  // Keeps track of things that need to load before the first page calculation
 
 
 // when the DOM loads
@@ -10,9 +11,9 @@ $(document).ready(function() {
         success: function (response) {
             var converter = new Showdown.converter({ extensions: ['md'] });
             $('#main_markdown').html(converter.makeHtml(response)); 
-            // $("#mdpad_error_div").html("<span class='color-scheme-message'>Initializing, please wait...</span>");
+            deferred.resolve();
             convert_yamls();
-            calculate();
+            deferred.done(calculate);
             $(':input').change(function() {
                 calculate();
             });
@@ -31,6 +32,38 @@ $(document).ready(function() {
     });
 });
 
+function deferOn() {
+    var d = new $.Deferred();
+    deferred = $.when(deferred, d); // deferred is a global
+    return d;
+}
+
+function scriptloader(x) {
+    // TODO data checking on x
+    var d = deferOn();
+    x.push(d.resolve);
+    head.js.apply(null, x);    // calls head.js(x[0], x[1], ..., function(d) d.resolve())
+}
+
+var dataloadermap = { // json and xml are handled automatically
+    csv:  "(function(csv) {return $.csv.toArrays(csv, {onParseValue: $.csv.hooks.castToScalar})})",
+    yaml: "jsyaml.load"
+};
+
+function dataloader(x) {
+    $.each(x, function(key, val){
+        var _dl_defer = deferOn();
+        var filetype = val.split('.').pop();
+        console.log(key + val + filetype + key);
+        $.get(val, function (content) {
+            fun = dataloadermap[filetype] || "";
+            console.log(fun+"XX");
+            eval(key + " = " + fun + "(content)");
+            _dl_defer.resolve();
+        }); 
+    });
+}
+
 
 // escape html
 function escape_html(str) {
@@ -39,23 +72,21 @@ function escape_html(str) {
 }
 
 var textbuffer = "";
-
-// function print(str) {
-//     $active_element.append(str);
-// }
-
-// function println(str) {
-//     $active_element.append(str + "\n");
-// }
            
 function convert_yaml() {
     var inp = $(this).find(".yamlinput");
     var out = $(this).find(".yamlresult");
     var nam = $(this).attr("name");
     if (typeof nam == 'undefined') nam = "Y";
-    eval(nam + " = jsyaml.load(inp.text())");
-    var js = $(this).attr("js");
-    if (typeof js != 'undefined') eval("out." + js + "(" + nam + ")");
+    var attrjs = $(this).attr("js");
+    var attrscript = $(this).attr("script");
+    var evalstr = nam + " = jsyaml.load(inp.text())";
+    if (typeof attrjs != 'undefined') {
+        evalstr = nam + " = out." + attrjs + "(jsyaml.load(inp.text()))";    
+    } else if (typeof attrscript != 'undefined') {
+        evalstr = nam + " = " + attrscript + "(jsyaml.load(inp.text()))";    
+    }
+    eval(evalstr)
 }
 
 function convert_yamls() {
@@ -145,10 +176,14 @@ function next_node(node) { // non-recursive
     return [];
 }  
 
+function calculate_forms() {  // page calculation
+    var form_cmd = $(":input").map(read_form); 
+}
+
 function calculate() {  // page calculation
     // calculate form elements first
     // TODO what about actively generated form elements?
-    var form_cmd = $(":input").map(read_form); 
+    calculate_forms();
     // Now, start calculation with the first block. Calculations chain
     // from there.
     calculate_forward(next_node($("#main_markdown")));
@@ -159,9 +194,15 @@ function plot(data, options) {  // uses Flot
     $.plot(pdiv, data, options);
 }
 
+jQuery.fn.calculate = function() {
+    calculate_block($(this[0]));
+};
+
 return{
     calculate:calculate,
+    calculate_forms:calculate_forms,
     calculate_block:calculate_block
 }
 
 }();
+
