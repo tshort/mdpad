@@ -140,7 +140,9 @@ For more information on compiling OpenModelica to JavaScript, see
 [here](https://github.com/tshort/openmodelica-javascript).
 
 The user interface was created in
-[mdpad](http://tshort.github.io/mdpad/).
+[mdpad](http://tshort.github.io/mdpad/). See
+[chua.md](http://tshort.github.io/mdpad/chua.md) for the Markdown code
+for this page.
 
 This should work in both Firefox and Chrome. It doesn't work in
 Internet Explorer. Sometimes, the simulation fails with "out of
