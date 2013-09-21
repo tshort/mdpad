@@ -142,3 +142,7 @@ For more information on compiling OpenModelica to JavaScript, see
 The user interface was created in
 [mdpad](http://tshort.github.io/mdpad/).
 
+This should work in both Firefox and Chrome. It doesn't work in
+Internet Explorer. Sometimes, the simulation fails with "out of
+memory" in Firefox 23 in Windows. I haven't seen that with Firefox 20
+on Linux.
