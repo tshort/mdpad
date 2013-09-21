@@ -7,7 +7,16 @@ interfaces or workbooks. These can be hosted as static pages.
 Interactivity is provided by JavaScript. 
 
 The target audience is someone who knows a bit of JavaScript and wants
-to make simple web applications.
+to make simple web applications. The key feature of *mdpad* is easy
+authoring of interactive web pages:
+
+- Markdown for clean, easy page creation
+- No complicated JavaScript toolkits
+- No tangled callbacks
+- Easy form creation
+- Helpers to load more scripts
+- Helpers to load csv, json, and xml data
+- Plotting built in
 
 Markdown is an easy way to make web pages, and with a bit of glue,
 JavaScript code blocks become "live". Data and form elements entered
@@ -66,15 +75,25 @@ Here are several examples
 * [mathjs.md](https://tshort.github.com/mdpad/mdpad.html?mathjs.md)
   -- Example using the [mathjs](http://mathjs.org/) package.  
 
-* [d3.md](https://tshort.github.com/mdpad/mdpad_d3.html?d3.md)
+* [d3.md](https://tshort.github.com/mdpad/mdpad.html?d3.md)
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
+
+Here's a real-world example in my area of work:
+
+* [1584.md](https://tshort.github.com/mdpad/mdpad.html?1584.md) --
+  IEEE 1584 Arc Flash Calculator
+
+Here's an interface to a simulation compiled using [Emscripten](http://emscripten.org/).
+
+* [chua.md](https://tshort.github.com/mdpad/mdpad.html?chua.md) --
+  OpenModelica simulation model of a Chua circuit
 
 ## Features
 
 *Plotting* -- There are several very good JavaScript libraries for plotting and
 graphing. I've tried out and included Flot and HighCharts in
-`mdpad.html`. `mdpad.html` includes support for D3, NVD3, and Vega.
+`mdpad.html`. I've also tried D3, NVD3, and Vega.
 
 *YAML* -- Enter data into JavaScript using [YAML](www.yaml.org). Here
 is an example:
@@ -84,7 +103,7 @@ is an example:
     wilma: [1,2,3]
     ```
 
-Now, in a JavaScript block, you can access `d.fred`. 
+Now, in a JavaScript block, you can access `d.fred` or `d.wilma`. 
 
 *Form elements* -- Using the `freq` = `___(3.0)` notation described
 above is one way to enter form elements. For more complicated form
@@ -106,8 +125,7 @@ Here, I'm running a server on my local computer on port 2000. The main
 html file is `mdpad.html`. This loads the *mdpad* page `example.md`.
 The base html file is used to load the appropriate libraries. You may
 want to change this to include custom headers or footers for your
-site, and you may want to change the JavaScript libraries loaded by
-default. 
+site. 
 
 ## Inspiration / Ideas
 

@@ -123,3 +123,22 @@ series = x.slice(1).map(function(x) {return [x[0], x[idx]];});
 
 plot([series]);
 ```
+
+## Comments
+
+This simulation model is from a [Modelica](http://modelica.org) model.
+Modelica is a language for simulating electrical, thermal, and
+mechanical, systems. [OpenModelica](http://openmodelica.org) was used
+to compile this model to C. Then, [Emscripten](http://emscripten.org/)
+was used to compile the C code to JavaScript.
+
+The JavaScript code for the model is almost 2 MB, so that's why the
+page loading takes so long. Once loaded, the simulation runs pretty
+quickly.
+
+For more information on compiling OpenModelica to JavaScript, see
+[here](https://github.com/tshort/openmodelica-javascript).
+
+The user interface was created in
+[mdpad](http://tshort.github.io/mdpad/).
+

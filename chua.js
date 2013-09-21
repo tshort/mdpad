@@ -7811,15 +7811,6 @@ function abort(text) {
 }
 Module['abort'] = Module.abort = abort;
 // {{PRE_RUN_ADDITIONS}}
-(function() {
-function assert(check, msg) {
-  if (!check) throw msg + new Error().stack;
-}
-// The following is apparently not needed
-//Module['FS_createDataFile']('/', 'Modelica.Electrical.Analog.Examples.ChuaCircuit_info.xml', 
-// The following is loaded by chua.md
-//Module['FS_createDataFile']('/', 'Modelica.Electrical.Analog.Examples.ChuaCircuit_init.xml', 
-})();
 if (Module['preInit']) {
   if (typeof Module['preInit'] == 'function') Module['preInit'] = [Module['preInit']];
   while (Module['preInit'].length > 0) {
