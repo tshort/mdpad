@@ -72,8 +72,12 @@ var _Templater = {
               
                         codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
                         codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
-              
-                        codeblock = "<div class='yamlblock' " + extras + " run='normal'><pre class='yamlinput'><code>" + codeblock + 
+             
+                        // add class="" if it's not there
+                        if (!/class=/.test(extras)) extras = extras + ' class=""';
+                        // add the yamlblock class
+                        extras = extras.replace(/(.*class=".*)(.*".*)/,"$1 yamlblock$2");
+                        codeblock = "<div " + extras + " run='normal'><pre class='yamlinput'><code>" + codeblock + 
                                       "\n</code></pre><div class = 'yamlresult'></div></div>";
               
                         return codeblock;
