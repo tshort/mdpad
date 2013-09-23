@@ -65,10 +65,21 @@ var _Templater = {
             {
               type    : 'lang',
               filter  : function(text) {
-                text = text.replace(/(?:^|\n)```yaml(.*)\n([\s\S]*?)\n```/g,
-                    function(wholeMatch,m1,m2) {
-                        var extras = m1;
-                        var codeblock = m2;
+                text = text.replace(/(?:^|\n)```(yaml|text)(.*)\n([\s\S]*?)\n```/g,
+                    function(wholeMatch,m1,m2,m3) {
+                        var blockname = m1;
+                        var extras = m2;
+                        var codeblock = m3;
+
+                        if (blockname == "yaml") {
+                            mainclass = "yamlblock";
+                            inputclass = "yamlinput";
+                            resultclass = "yamlresult";
+                        } else {
+                            mainclass = "textblock";
+                            inputclass = "textinput";
+                            resultclass = "textresult";
+                        }
               
                         codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
                         codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
@@ -76,9 +87,10 @@ var _Templater = {
                         // add class="" if it's not there
                         if (!/class=/.test(extras)) extras = extras + ' class=""';
                         // add the yamlblock class
-                        extras = extras.replace(/(.*class=".*)(.*".*)/,"$1 yamlblock$2");
-                        codeblock = "<div " + extras + " run='normal'><pre class='yamlinput'><code>" + codeblock + 
-                                      "\n</code></pre><div class = 'yamlresult'></div></div>";
+                        extras = extras.replace(/(.*class=".*)(.*".*)/,"$1 " + mainclass + "$2");
+                        codeblock = "<div " + extras + " run='normal'><pre class='" + inputclass + 
+                                    "'><code>" + codeblock + "\n</code></pre><div class = '" + 
+                                    resultclass + "'></div></div>";
               
                         return codeblock;
                     }

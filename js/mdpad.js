@@ -54,10 +54,8 @@ function dataloader(x) {
     $.each(x, function(key, val){
         var _dl_defer = deferOn();
         var filetype = val.split('.').pop();
-        console.log(key + val + filetype + key);
         $.get(val, function (content) {
             fun = dataloadermap[filetype] || "";
-            console.log(fun+"XX");
             eval(key + " = " + fun + "(content)");
             _dl_defer.resolve();
         }); 
@@ -74,23 +72,30 @@ function escape_html(str) {
 var textbuffer = "";
            
 function convert_yaml() {
-    var inp = $(this).find(".yamlinput");
-    var out = $(this).find(".yamlresult");
+    var inp = $(this).find(".yamlinput, .textinput");
+    var out = $(this).find(".yamlresult, .textresult");
     var nam = $(this).attr("name");
     if (typeof nam == 'undefined') nam = "Y";
-    var attrjs = $(this).attr("js");
+    var attrjquery = $(this).attr("jquery");
     var attrscript = $(this).attr("script");
-    var evalstr = nam + " = jsyaml.load(inp.text())";
-    if (typeof attrjs != 'undefined') {
-        evalstr = nam + " = out." + attrjs + "(jsyaml.load(inp.text()))";    
-    } else if (typeof attrscript != 'undefined') {
-        evalstr = nam + " = " + attrscript + "(jsyaml.load(inp.text()))";    
+    var first = nam + " = ";
+    if ($(this).hasClass("yamlblock")) {
+        var last = "(jsyaml.load(inp.text()))";
+    } else {
+        var last = "(inp.text())";
     }
-    eval(evalstr)
+    var middle = "";
+    if (typeof attrjquery != 'undefined') {
+        middle = "out." + attrjquery;    
+    } else if (typeof attrscript != 'undefined') {
+        middle = attrscript;    
+    }
+console.log(first+middle+last);
+    eval(first + middle + last);
 }
 
 function convert_yamls() {
-    var code = $("#main_markdown").find(".yamlblock").each(convert_yaml);
+    var code = $("#main_markdown").find(".yamlblock, .textblock").each(convert_yaml);
 }
 
 

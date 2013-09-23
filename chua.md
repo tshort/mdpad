@@ -13,7 +13,7 @@ xml: chua.xml
 <img src=chua.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
 
 
-```yaml js=jsonForm class="form-horizontal" name=frm 
+```yaml jquery=jsonForm class="form-horizontal" name=frm 
 schema: 
   stopTime:
     type: string

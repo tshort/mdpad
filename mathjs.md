@@ -1,3 +1,6 @@
+```yaml script=scriptloader
+- lib/math.min.js
+```
 
 
 # mathjs example
@@ -6,7 +9,7 @@ This example uses [mathjs](http://mathjs.org/).
 
 Here are some complex number manipulations:
 
-```yaml js=jsonForm
+```yaml jquery=jsonForm
 schema:
   a_re:
     type: number

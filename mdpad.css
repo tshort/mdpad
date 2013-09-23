@@ -37,7 +37,8 @@ div.jsresultdone {
     /\* display:inline; \*/
 }
 
-pre.yamlinput { background-color: white; font-family: monospace;
+pre.yamlinput, pre.textinput {   
+    background-color: white; font-family: monospace;
     margin-top:0em; margin-bottom:0em;
     display:none;
 }
@@ -46,7 +47,7 @@ div.yamlplain { font-family: monospace;
 }
 
 
-div.yamlresult {
+div.yamlresult div.textresult {
     /\* margin-top:0em; margin-bottom:0em; \*/
     /\* background-color: #fbf6df; \*/
     /\* display:inline; \*/

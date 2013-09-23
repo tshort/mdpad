@@ -15,7 +15,7 @@ authoring of interactive web pages:
 - No tangled callbacks
 - Easy form creation
 - Helpers to load more scripts
-- Helpers to load csv, json, and xml data
+- Helpers to load CSV, JSON, and XML data
 - Plotting built in
 
 Markdown is an easy way to make web pages, and with a bit of glue,
@@ -65,29 +65,43 @@ will be translated into JavaScript variables.
 
 Here are several examples
 
-* [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
-  -- Covers forms, data input, and plotting
+* `example.md` [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
+  [Markdown](https://tshort.github.com/mdpad/example.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?example.md)
+  -- Covers forms, data input, and plotting.
 
-* [numericjs.md](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)
+* `yaml_usage.md`
+  [Markdown](https://tshort.github.com/mdpad/yaml_usage.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?yaml_usage.md)
+  -- Covers YAML and text input blocks and uses for loading CSV, JSON,
+  XML, and YAML data as well as loading scripts and creating forms.
+
+* `numericjs.md`
+  [Markdown](https://tshort.github.com/mdpad/numericjs.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
-     package.  
+     package.
 
-* [mathjs.md](https://tshort.github.com/mdpad/mdpad.html?mathjs.md)
-  -- Example using the [mathjs](http://mathjs.org/) package.  
-
-* [d3.md](https://tshort.github.com/mdpad/mdpad.html?d3.md)
+* `d3.md`
+  [Markdown](https://tshort.github.com/mdpad/d3.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?d3.md)
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
 
 Here's a real-world example in my area of work:
 
-* [1584.md](https://tshort.github.com/mdpad/mdpad.html?1584.md) --
-  IEEE 1584 Arc Flash Calculator
+* `1584.md`
+  [Markdown](https://tshort.github.com/mdpad/1584.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?1584.md) --
+  IEEE 1584 Arc Flash Calculator.
 
-Here's an interface to a simulation compiled using [Emscripten](http://emscripten.org/).
+Here's an interface to a simulation compiled using
+[Emscripten](http://emscripten.org/).
 
-* [chua.md](https://tshort.github.com/mdpad/mdpad.html?chua.md) --
-  OpenModelica simulation model of a Chua circuit
+* `chua.md`
+  [Markdown](https://tshort.github.com/mdpad/chua.md)
+  [Live results](https://tshort.github.com/mdpad/mdpad.html?chua.md) --
+  OpenModelica simulation model of a Chua circuit.
 
 ## Features
 
@@ -95,15 +109,17 @@ Here's an interface to a simulation compiled using [Emscripten](http://emscripte
 graphing. I've tried out and included Flot and HighCharts in
 `mdpad.html`. I've also tried D3, NVD3, and Vega.
 
-*YAML* -- Enter data into JavaScript using [YAML](www.yaml.org). Here
-is an example:
+*YAML* -- Enter data into JavaScript using [YAML](www.yaml.org). YAML
+is a plain text format for describing nested data structures. It is
+easier to read and write than JSON or XML. Here is an example:
 
     ```yaml name=d
     fred: 27
     wilma: [1,2,3]
     ```
 
-Now, in a JavaScript block, you can access `d.fred` or `d.wilma`. 
+Now, in a JavaScript block, you can access `d.fred` (`27`) or
+`d.wilma` (the array `[1,2,3]`).
 
 *Form elements* -- Using the `freq` = `___(3.0)` notation described
 above is one way to enter form elements. For more complicated form
@@ -160,8 +176,8 @@ right now.
 
 ## Current status
 
-Everything's pretty much alpha stage right now. The main code is less
-than 200 lines of code. Many of the libraries used (Flot, yaml-js, showdown,
+Everything's pretty much alpha stage right now. The main code is about
+200 lines of code. Many of the libraries used (Flot, yaml-js, showdown,
 etc.) are pretty mature.
 
 MIT licensed.
