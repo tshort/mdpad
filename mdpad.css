@@ -51,3 +51,9 @@ div.yamlresult {
     /\* background-color: #fbf6df; \*/
     /\* display:inline; \*/
 }
+
+/* fix a wierd Bootstrap bug here: */
+/* http://stackoverflow.com/questions/13656098/css-content-property-forces-a-clear-when-set-to  */
+.control-group::before, .form-horizontal .control-group::after {
+   content: none;
+}

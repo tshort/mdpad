@@ -10,10 +10,10 @@ xml: chua.xml
 # OpenModelica simulation example
 ## Modelica.Electrical.Analog.Examples.ChuaCircuit
 
+<img src=chua.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
 
-<img src=chua.svg style="float:right; width:600px; background-color:#ffffff; border:2px solid gray" />
 
-```yaml js=jsonForm name=frm
+```yaml js=jsonForm class="form-horizontal" name=frm 
 schema: 
   stopTime:
     type: string
@@ -38,18 +38,20 @@ schema:
       - dassltest
   L: 
     type: string
-    title: L (henries)
+    title: L, henries
     default: 18.0
   C1: 
     type: string
-    title: C1 (farads)
+    title: C1, farads
     default: 10.0
   C2: 
     type: string
-    title: C2 (farads)
+    title: C2, farads
     default: 100.0
 form: 
   - "*"
+params:
+  fieldHtmlClass: input-medium
 ```
 
 ```js

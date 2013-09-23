@@ -50,25 +50,15 @@ to generate them. Here's an example using
 [jsonform](https://github.com/joshfire/jsonform). Everytime a form
 element changes, the document re-runs.
 
-```yaml js=jsonForm
+```yaml js=jsonForm class="form-horizontal"
 schema: 
   choice: 
     type: string
-    title: Title
+    title: Choice
     enum: 
       - "choice-1"
-      - "choice-2"
-      - "choice-3"
-form: ["*"]
-```
-
-```js
-println("choice = " + choice)
-```
-
-
-```yaml js=jsonForm
-schema:
+      - "Second choice"
+      - "This is third"
   name:
     type: string
     title: Name
@@ -77,10 +67,12 @@ schema:
     type: number
     title: Age
     default: 34
-form: ["*"]
+form:
+  - "*"
 ```
 
 ```js
+println("choice = " + choice)
 println("name = " + name)
 println("age = " + age)
 ```
