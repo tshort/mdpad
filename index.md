@@ -69,31 +69,45 @@ will be translated into JavaScript variables.
 
 ## Examples
 
-Here are several examples
+Here are several examples:
 
-* [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
-  -- Covers forms, data input, and plotting
+* `example.md` [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
+  [[Markdown](https://tshort.github.com/mdpad/example.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?example.md)]
+  -- Covers forms, data input, and plotting.
 
-* [numericjs.md](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)
+* `yaml_usage.md`
+  [[Markdown](https://tshort.github.com/mdpad/yaml_usage.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?yaml_usage.md)]
+  -- Covers YAML and text input blocks and uses for loading CSV, JSON,
+  XML, and YAML data as well as loading scripts and creating forms.
+
+* `numericjs.md`
+  [[Markdown](https://tshort.github.com/mdpad/numericjs.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)]
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
      package.
 
-* [mathjs.md](https://tshort.github.com/mdpad/mdpad.html?mathjs.md)
-  -- Example using the [mathjs](http://mathjs.org/) package.  
-
-* [d3.md](https://tshort.github.com/mdpad/mdpad.html?d3.md)
+* `d3.md`
+  [[Markdown](https://tshort.github.com/mdpad/d3.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?d3.md)]
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
 
 Here's a real-world example in my area of work:
 
-* [1584.md](https://tshort.github.com/mdpad/mdpad.html?1584.md) --
-  IEEE 1584 Arc Flash Calculator
+* `1584.md`
+  [[Markdown](https://tshort.github.com/mdpad/1584.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?1584.md)] --
+  IEEE 1584 Arc Flash Calculator.
 
-Here's an interface to a simulation compiled using [Emscripten](http://emscripten.org/).
+Here's an interface to a simulation compiled using
+[Emscripten](http://emscripten.org/).
 
-* [chua.md](https://tshort.github.com/mdpad/mdpad.html?chua.md) --
-  OpenModelica simulation model of a Chua circuit
+* `chua.md`
+  [[Markdown](https://tshort.github.com/mdpad/chua.md)]
+  [[Live results](https://tshort.github.com/mdpad/mdpad.html?chua.md)] --
+  OpenModelica simulation model of a Chua circuit.
 
 ## Features
 
