@@ -65,7 +65,7 @@ will be translated into JavaScript variables.
 
 Here are several examples
 
-* `example.md` [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
+* `example.md` 
   [[Markdown](https://tshort.github.com/mdpad/example.md)]
   [[Live results](https://tshort.github.com/mdpad/mdpad.html?example.md)]
   -- Covers forms, data input, and plotting.

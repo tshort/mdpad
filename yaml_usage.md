@@ -211,7 +211,7 @@ schema:
     default: true
   age:
     type: integer
-    title: Your age category (from 7 to 77)
+    title: Age
     minimum: 7
     maximum: 77
   name:
