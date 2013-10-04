@@ -181,6 +181,20 @@ if (typeof(header) != "undefined") {
 
 <div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
 
+## Information
+
+Chua's circuit is a simple nonlinear circuit which shows
+chaotic behaviour. The circuit consists of linear basic elements
+(capacitors, resistor, conductor, inductor), and one nonlinear
+element, which is called Chua's diode. The chaotic behaviour is
+simulated.
+
+The simulation end time should be set to 5e4. To see the chaotic
+behaviour, plot `C1.v` against `C2.v`.
+
+Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. *IEEE
+Transactions on CAS*. I 40 (1993)10, 640-656.
+
 ## Comments
 
 This simulation model is from a [Modelica](http://modelica.org) model.
