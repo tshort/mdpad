@@ -137,8 +137,8 @@ var $active_element;
 
 function calculate_block(dom_ele) {
     if (dom_ele.length == 0) return;
-    var code = $(dom_ele).find(".jsinput").text();
-    var res = $(dom_ele).find(".jsresult");
+    var res = $(dom_ele).children(".jsresult");
+    var code = $(dom_ele).children(".jsinput").text();
     scroll_position = jQuery(window).scrollTop();
     res.css('height', res.height()).css('overflow', 'hidden'); // keep the page from jumping around
     res.html("");

@@ -3,14 +3,14 @@
 ```
 
 ```yaml script=dataloader
-xml: chua.xml 
+xml: Modelica.Thermal.HeatTransfer.Examples.TwoMasses_init.xml 
 ```
 
 
 # OpenModelica simulation example
-## Modelica.Electrical.Analog.Examples.ChuaCircuit
+## Modelica.Thermal.HeatTransfer.Examples.TwoMasses
 
-<img src=chua.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
+<img src=Modelica.Thermal.HeatTransfer.Examples.TwoMasses.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
 
 
 ```yaml jquery=jsonForm class="form-horizontal" name=frm 
@@ -18,7 +18,7 @@ schema:
   stopTime:
     type: string
     title: Stop time, sec
-    default: 10000.0
+    default: 5
   intervals:
     type: string
     title: Output intervals
@@ -26,7 +26,7 @@ schema:
   tolerance:
     type: string
     title: Tolerance
-    default: 0.0001
+    default: 0.0000001
   solver: 
     type: string
     title: Solver
@@ -36,18 +36,14 @@ schema:
       - rungekutta
       - dasslwort
       - dassltest
-  L: 
+  mass1_C: 
     type: string
-    title: L, henries
-    default: 18.0
-  C1: 
+    title: Mass 1 heat capacity
+    default: 15.0
+  mass2_C: 
     type: string
-    title: C1, farads
-    default: 10.0
-  C2: 
-    type: string
-    title: C2, farads
-    default: 100.0
+    title: Mass 2 heat capacity
+    default: 15.0
 form: 
   - "*"
 params:
@@ -68,9 +64,8 @@ defex.attr("tolerance", tolerance)
 defex.attr("solver", solver)
 
 // Set some model parameters
-$xml.find("ScalarVariable[name = 'L.L']").find("Real").attr("start", L)
-$xml.find("ScalarVariable[name = 'C1.C']").find("Real").attr("start", C1)
-$xml.find("ScalarVariable[name = 'C2.C']").find("Real").attr("start", C2)
+$xml.find("ScalarVariable[name = 'mass1.C']").find("Real").attr("start", mass1_C)
+$xml.find("ScalarVariable[name = 'mass2.C']").find("Real").attr("start", mass2_C)
 
 // Write out the initialization file
 xmlstring = new XMLSerializer().serializeToString(xml)
@@ -82,10 +77,10 @@ $('#statustimer').tinyTimer({ from: Date.now() });
 timer = $("#statustimer").data("tinyTimer")
 
 // Start the simulation!
-basename = "Modelica.Electrical.Analog.Examples.ChuaCircuit"
+basename = "Modelica.Thermal.HeatTransfer.Examples.TwoMasses"
 
 if (typeof(wworker) != "undefined" && isRunning) wworker.terminate() 
-if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker("chua.js")
+if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker(basename + ".js")
 isRunning = true
 
 wworker.postMessage({basename: basename, xmlstring: xmlstring})
@@ -98,6 +93,7 @@ wworker.addEventListener('error', function(event) {
 <div id="status" style="text-align:center"><span id="statustext">
 Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
+
 ## Results
 
 <div id="yaxisform"> </div>
@@ -107,6 +103,8 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
 wworker.addEventListener("message", function(e) {
     $("#statustext").html(e.data.status)
+    timer.stop();
+    isRunning = false
     x = $.csv.toArrays(e.data.csv, {onParseValue: $.csv.hooks.castToScalar})
     
     // `header` has the column names. The first is the time, and the rest
@@ -155,15 +153,11 @@ wworker.addEventListener("message", function(e) {
       ]
     };
     
-    // $(dom_ele).children(".jsresult").html("");
-    // $(dom_ele).children(".jsresult").jsonForm(jsonform);
     $("#yaxisform").html("");
     $("#yaxisform").jsonForm(jsonform);
     $("#xaxisform").html("");
     $("#xaxisform").jsonForm(jsonformX);
-    timer.stop();
     $("#plotdiv").calculate();
-    isRunning = false
     
 }, false);
 
@@ -180,6 +174,22 @@ if (typeof(header) != "undefined") {
 ```
 
 <div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
+
+## Example help
+
+This example demonstrates the thermal response of two masses connected
+by a conducting element. The two masses have the same heat capacity
+but different initial temperatures (T1=100 [degC], T2= 0 [degC]). The
+mass with the higher temperature will cool off while the mass with the
+lower temperature heats up. They will each asymptotically approach the
+calculated temperature `T_final_K` (`T_final_degC`) that results from
+dividing the total initial energy in the system by the sum of the heat
+capacities of each element.
+
+Simulate for 5 s and plot the variables
+`mass1.T`, `mass2.T`, `T_final_K` or 
+`Tsensor1.T`, `Tsensor2.T`, `T_final_degC`
+
 
 ## Comments
 
@@ -198,7 +208,7 @@ For more information on compiling OpenModelica to JavaScript, see
 
 The user interface was created in
 [mdpad](http://tshort.github.io/mdpad/). See
-[chua.md](http://tshort.github.io/mdpad/chua.md) for the Markdown code
+[Modelica.Thermal.HeatTransfer.Examples.TwoMasses.md](Modelica.Thermal.HeatTransfer.Examples.TwoMasses.md) for the Markdown code
 for this page.
 
 This should work in both Firefox and Chrome. It doesn't work in

@@ -1,0 +1,353 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<!-- description of the model interface using an extention of the FMI standard -->
+<fmiModelDescription
+  fmiVersion                          = "1.0"
+
+  modelName                           = "Modelica.Thermal.HeatTransfer.Examples.TwoMasses"
+  modelIdentifier                     = "Modelica_Thermal_HeatTransfer_Examples_TwoMasses"
+  
+  OPENMODELICAHOME                    = "/home/tshort/openmodelica/build"
+  
+  guid                                = "{8c4e810f-3df3-4a00-8276-176fa3c9f9e0}"
+  
+  generationTool                      = "OpenModelica Compiler 1.9.0 RC1+dev (r17499)"
+  generationDateAndTime               = "2013-10-03T16:02:36Z"
+  
+  variableNamingConvention            = "structured"
+  
+  numberOfEventIndicators             = "0"  cmt_numberOfEventIndicators             = "NG:       number of zero crossings,                           FMI"
+  numberOfTimeEvents                  = "0"  cmt_numberOfTimeEvents                  = "NG_SAM:   number of zero crossings that are samples,          OMC"
+  
+  numberOfInputVariables              = "0"  cmt_numberOfInputVariables              = "NI:       number of inputvar on topmodel,                     OMC"
+  numberOfOutputVariables             = "0"  cmt_numberOfOutputVariables             = "NO:       number of outputvar on topmodel,                    OMC"
+  
+  numberOfResidualsForInitialization  = "1"  cmt_numberOfResidualsForInitialization  = "NR:       number of residuals for initialialization function, OMC"
+  numberOfExternalObjects             = "0"  cmt_numberOfExternalObjects             = "NEXT:     number of external objects,                         OMC"
+  numberOfFunctions                   = "0"  cmt_numberOfFunctions                   = "NFUNC:    number of functions used by the simulation,         OMC"
+  
+  numberOfContinuousStates            = "2"  cmt_numberOfContinuousStates            = "NX:       number of states,                                   FMI"
+  numberOfRealAlgebraicVariables      = "8"  cmt_numberOfRealAlgebraicVariables      = "NY:       number of real variables,                           OMC"
+  numberOfRealAlgebraicAliasVariables = "10"  cmt_numberOfRealAlgebraicAliasVariables = "NA:       number of alias variables,                          OMC"
+  numberOfRealParameters              = "4"  cmt_numberOfRealParameters              = "NP:       number of parameters,                               OMC"
+  
+  numberOfIntegerAlgebraicVariables   = "0"  cmt_numberOfIntegerAlgebraicVariables   = "NYINT:    number of alg. int variables,                       OMC"
+  numberOfIntegerAliasVariables       = "0"  cmt_numberOfIntegerAliasVariables       = "NAINT:    number of alias int variables,                      OMC"
+  numberOfIntegerParameters           = "0"  cmt_numberOfIntegerParameters           = "NPINT:    number of int parameters,                           OMC"
+  
+  numberOfStringAlgebraicVariables    = "0"  cmt_numberOfStringAlgebraicVariables    = "NYSTR:    number of alg. string variables,                    OMC"
+  numberOfStringAliasVariables        = "0"  cmt_numberOfStringAliasVariables        = "NASTR:    number of alias string variables,                   OMC"
+  numberOfStringParameters            = "0"  cmt_numberOfStringParameters            = "NPSTR:    number of string parameters,                        OMC"
+  
+  numberOfBooleanAlgebraicVariables   = "0"  cmt_numberOfBooleanAlgebraicVariables   = "NYBOOL:   number of alg. bool variables,                      OMC"
+  numberOfBooleanAliasVariables       = "0"  cmt_numberOfBooleanAliasVariables       = "NABOOL:   number of alias bool variables,                     OMC"
+  numberOfBooleanParameters           = "0"  cmt_numberOfBooleanParameters           = "NPBOOL:   number of bool parameters,                          OMC" >
+  
+  
+  <!-- startTime, stopTime, tolerance are FMI specific, all others are OMC specific -->
+  <DefaultExperiment
+    startTime      = "0.0"
+    stopTime       = "1.0"
+    stepSize       = "0.001"
+    tolerance      = "0.000001"
+    solver         = "dassl"
+    outputFormat   = "csv"
+    variableFilter = ".*" />
+    
+  <!-- variables in the model -->
+  <ModelVariables>
+
+  <ScalarVariable
+  name = "mass2.T"
+  valueReference = "1000"
+  description = "Temperature of element"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rSta"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "289" startColumn = "7" endLine = "290" endColumn = "33" fileWritable = "true">
+  <Real useStart="true" start="273.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass1.T"
+  valueReference = "1001"
+  description = "Temperature of element"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rSta"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "289" startColumn = "7" endLine = "290" endColumn = "33" fileWritable = "true">
+  <Real useStart="true" start="373.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(mass2.T)"
+  valueReference = "1002"
+  description = "Temperature of element"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rDer"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "289" startColumn = "7" endLine = "290" endColumn = "33" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(mass1.T)"
+  valueReference = "1003"
+  description = "Temperature of element"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rDer"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "289" startColumn = "7" endLine = "290" endColumn = "33" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor2.T"
+  valueReference = "1004"
+  description = "Absolute temperature in degree Celsius as output signal"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "1963" startColumn = "7" endLine = "1966" endColumn = "69" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="degC" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor1.T"
+  valueReference = "1005"
+  description = "Absolute temperature in degree Celsius as output signal"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "1963" startColumn = "7" endLine = "1966" endColumn = "69" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="degC" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.dT"
+  valueReference = "1006"
+  description = "port_a.T - port_b.T"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "2" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2928" startColumn = "7" endLine = "2928" endColumn = "70" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="K" displayUnit="K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.Q_flow"
+  valueReference = "1007"
+  description = "Heat flow rate from port_a -&gt; port_b"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "3" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2926" startColumn = "7" endLine = "2927" endColumn = "47" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass2.der_T"
+  valueReference = "1008"
+  description = "Time derivative of temperature (= der(T))"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "4" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "291" startColumn = "7" endLine = "292" endColumn = "52" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="K/s" displayUnit="K/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass1.der_T"
+  valueReference = "1009"
+  description = "Time derivative of temperature (= der(T))"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "5" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "291" startColumn = "7" endLine = "292" endColumn = "52" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="K/s" displayUnit="K/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor1.port.Q_flow"
+  valueReference = "1010"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "6" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor2.port.Q_flow"
+  valueReference = "1011"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "7" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "T_final_K"
+  valueReference = "1012"
+  description = "Projected final temperature"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "13" startColumn = "7" endLine = "14" endColumn = "38" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass1.C"
+  valueReference = "1013"
+  description = "Heat capacity of element (= cp*m)"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "287" startColumn = "7" endLine = "288" endColumn = "44" fileWritable = "true">
+  <Real useStart="true" start="15.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="J/K" displayUnit="J/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass2.C"
+  valueReference = "1014"
+  description = "Heat capacity of element (= cp*m)"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "2" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "287" startColumn = "7" endLine = "288" endColumn = "44" fileWritable = "true">
+  <Real useStart="true" start="15.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="J/K" displayUnit="J/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.G"
+  valueReference = "1015"
+  description = "Constant thermal conductance of material"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "3" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "421" startColumn = "7" endLine = "422" endColumn = "51" fileWritable = "true">
+  <Real useStart="true" start="10.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W/K" displayUnit="W/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass2.port.T"
+  valueReference = "1016"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass2.T"
+  classIndex = "0" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor2.port.T"
+  valueReference = "1017"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass2.T"
+  classIndex = "1" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.port_b.T"
+  valueReference = "1018"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass2.T"
+  classIndex = "2" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass1.port.T"
+  valueReference = "1019"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass1.T"
+  classIndex = "3" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Tsensor1.port.T"
+  valueReference = "1020"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass1.T"
+  classIndex = "4" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.port_a.T"
+  valueReference = "1021"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="mass1.T"
+  classIndex = "5" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2843" startColumn = "7" endLine = "2843" endColumn = "56" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.port_b.Q_flow"
+  valueReference = "1022"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="conduction.Q_flow"
+  classIndex = "6" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "conduction.port_a.Q_flow"
+  valueReference = "1023"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="conduction.Q_flow"
+  classIndex = "7" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass1.port.Q_flow"
+  valueReference = "1024"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="conduction.Q_flow"
+  classIndex = "8" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "mass2.port.Q_flow"
+  valueReference = "1025"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="conduction.Q_flow"
+  classIndex = "9" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2844" startColumn = "7" endLine = "2845" endColumn = "79" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+
+
+
+  </ModelVariables>
+  
+  
+</fmiModelDescription>
+

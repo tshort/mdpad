@@ -1,0 +1,1066 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<!-- description of the model interface using an extention of the FMI standard -->
+<fmiModelDescription
+  fmiVersion                          = "1.0"
+
+  modelName                           = "Modelica.Electrical.Analog.Examples.OvervoltageProtection"
+  modelIdentifier                     = "Modelica_Electrical_Analog_Examples_OvervoltageProtection"
+  
+  OPENMODELICAHOME                    = "/home/tshort/openmodelica/build"
+  
+  guid                                = "{8c4e810f-3df3-4a00-8276-176fa3c9f9e0}"
+  
+  generationTool                      = "OpenModelica Compiler 1.9.0 RC1+dev (r17499)"
+  generationDateAndTime               = "2013-10-03T13:28:17Z"
+  
+  variableNamingConvention            = "structured"
+  
+  numberOfEventIndicators             = "1"  cmt_numberOfEventIndicators             = "NG:       number of zero crossings,                           FMI"
+  numberOfTimeEvents                  = "0"  cmt_numberOfTimeEvents                  = "NG_SAM:   number of zero crossings that are samples,          OMC"
+  
+  numberOfInputVariables              = "0"  cmt_numberOfInputVariables              = "NI:       number of inputvar on topmodel,                     OMC"
+  numberOfOutputVariables             = "0"  cmt_numberOfOutputVariables             = "NO:       number of outputvar on topmodel,                    OMC"
+  
+  numberOfResidualsForInitialization  = "0"  cmt_numberOfResidualsForInitialization  = "NR:       number of residuals for initialialization function, OMC"
+  numberOfExternalObjects             = "0"  cmt_numberOfExternalObjects             = "NEXT:     number of external objects,                         OMC"
+  numberOfFunctions                   = "0"  cmt_numberOfFunctions                   = "NFUNC:    number of functions used by the simulation,         OMC"
+  
+  numberOfContinuousStates            = "1"  cmt_numberOfContinuousStates            = "NX:       number of states,                                   FMI"
+  numberOfRealAlgebraicVariables      = "18"  cmt_numberOfRealAlgebraicVariables      = "NY:       number of real variables,                           OMC"
+  numberOfRealAlgebraicAliasVariables = "32"  cmt_numberOfRealAlgebraicAliasVariables = "NA:       number of alias variables,                          OMC"
+  numberOfRealParameters              = "35"  cmt_numberOfRealParameters              = "NP:       number of parameters,                               OMC"
+  
+  numberOfIntegerAlgebraicVariables   = "0"  cmt_numberOfIntegerAlgebraicVariables   = "NYINT:    number of alg. int variables,                       OMC"
+  numberOfIntegerAliasVariables       = "0"  cmt_numberOfIntegerAliasVariables       = "NAINT:    number of alias int variables,                      OMC"
+  numberOfIntegerParameters           = "0"  cmt_numberOfIntegerParameters           = "NPINT:    number of int parameters,                           OMC"
+  
+  numberOfStringAlgebraicVariables    = "0"  cmt_numberOfStringAlgebraicVariables    = "NYSTR:    number of alg. string variables,                    OMC"
+  numberOfStringAliasVariables        = "0"  cmt_numberOfStringAliasVariables        = "NASTR:    number of alias string variables,                   OMC"
+  numberOfStringParameters            = "0"  cmt_numberOfStringParameters            = "NPSTR:    number of string parameters,                        OMC"
+  
+  numberOfBooleanAlgebraicVariables   = "0"  cmt_numberOfBooleanAlgebraicVariables   = "NYBOOL:   number of alg. bool variables,                      OMC"
+  numberOfBooleanAliasVariables       = "0"  cmt_numberOfBooleanAliasVariables       = "NABOOL:   number of alias bool variables,                     OMC"
+  numberOfBooleanParameters           = "4"  cmt_numberOfBooleanParameters           = "NPBOOL:   number of bool parameters,                          OMC" >
+  
+  
+  <!-- startTime, stopTime, tolerance are FMI specific, all others are OMC specific -->
+  <DefaultExperiment
+    startTime      = "0.0"
+    stopTime       = "0.4"
+    stepSize       = "0.0008"
+    tolerance      = "0.000001"
+    solver         = "dassl"
+    outputFormat   = "csv"
+    variableFilter = ".*" />
+    
+  <!-- variables in the model -->
+  <ModelVariables>
+
+  <ScalarVariable
+  name = "CL.v"
+  valueReference = "1000"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rSta"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(CL.v)"
+  valueReference = "1001"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rDer"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.LossPower"
+  valueReference = "1002"
+  description = "Loss power leaving component via HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "311" startColumn = "5" endLine = "312" endColumn = "50" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.v"
+  valueReference = "1003"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.LossPower"
+  valueReference = "1004"
+  description = "Loss power leaving component via HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "2" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "311" startColumn = "5" endLine = "312" endColumn = "50" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.i"
+  valueReference = "1005"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "3" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.v"
+  valueReference = "1006"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "4" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.i"
+  valueReference = "1007"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "5" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "ground.p.i"
+  valueReference = "1008"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "6" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "18" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.LossPower"
+  valueReference = "1009"
+  description = "Loss power leaving component via HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "7" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "311" startColumn = "5" endLine = "312" endColumn = "50" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.i"
+  valueReference = "1010"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "8" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.LossPower"
+  valueReference = "1011"
+  description = "Loss power leaving component via HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "9" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "311" startColumn = "5" endLine = "312" endColumn = "50" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.v"
+  valueReference = "1012"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "10" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.i"
+  valueReference = "1013"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "11" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.v"
+  valueReference = "1014"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "12" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.maxexp"
+  valueReference = "1015"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "13" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "93" startColumn = "4" endLine = "93" endColumn = "27" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.maxexp"
+  valueReference = "1016"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "14" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "93" startColumn = "4" endLine = "93" endColumn = "27" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.R_actual"
+  valueReference = "1017"
+  description = "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "15" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "70" startColumn = "3" endLine = "71" endColumn = "63" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.R_actual"
+  valueReference = "1018"
+  description = "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "16" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "70" startColumn = "3" endLine = "71" endColumn = "63" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "ground.p.v"
+  valueReference = "1019"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "17" classType = "rAlg"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "7" startColumn = "5" endLine = "12" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.offset"
+  valueReference = "1020"
+  description = "Voltage offset"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "425" startColumn = "5" endLine = "425" endColumn = "51" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.startTime"
+  valueReference = "1021"
+  description = "Time offset"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "426" startColumn = "5" endLine = "426" endColumn = "48" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="s" displayUnit="s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.V"
+  valueReference = "1022"
+  description = "Amplitude of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "2" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Sources.mo" startLine = "359" startColumn = "5" endLine = "359" endColumn = "61" fileWritable = "true">
+  <Real useStart="true" start="10.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.phase"
+  valueReference = "1023"
+  description = "Phase of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "3" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Sources.mo" startLine = "360" startColumn = "5" endLine = "360" endColumn = "52" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="rad" displayUnit="deg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.freqHz"
+  valueReference = "1024"
+  description = "Frequency of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "4" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Sources.mo" startLine = "361" startColumn = "5" endLine = "361" endColumn = "68" fileWritable = "true">
+  <Real useStart="true" start="5.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Hz" displayUnit="Hz" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.amplitude"
+  valueReference = "1025"
+  description = "Amplitude of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "5" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "560" startColumn = "5" endLine = "560" endColumn = "56" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.freqHz"
+  valueReference = "1026"
+  description = "Frequency of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "6" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "561" startColumn = "5" endLine = "561" endColumn = "73" fileWritable = "true">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Hz" displayUnit="Hz" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.phase"
+  valueReference = "1027"
+  description = "Phase of sine wave"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "7" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "562" startColumn = "5" endLine = "562" endColumn = "57" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="rad" displayUnit="deg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.offset"
+  valueReference = "1028"
+  description = "Offset of output signal"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "8" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "563" startColumn = "5" endLine = "563" endColumn = "54" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.startTime"
+  valueReference = "1029"
+  description = "Output = offset for time &lt; startTime"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "9" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "564" startColumn = "5" endLine = "564" endColumn = "78" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="s" displayUnit="s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.T"
+  valueReference = "1030"
+  description = "Fixed device temperature if useHeatPort = false"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "10" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.R"
+  valueReference = "1031"
+  description = "Resistance at temperature T_ref"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "11" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "62" startColumn = "3" endLine = "63" endColumn = "40" fileWritable = "true">
+  <Real useStart="true" start="20.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.T_ref"
+  valueReference = "1032"
+  description = "Reference temperature"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "12" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "64" startColumn = "3" endLine = "64" endColumn = "78" fileWritable = "true">
+  <Real useStart="true" start="300.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.alpha"
+  valueReference = "1033"
+  description = "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "13" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "65" startColumn = "3" endLine = "66" endColumn = "93" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="1/K" displayUnit="1/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.T"
+  valueReference = "1034"
+  description = "Fixed device temperature if useHeatPort = false"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "14" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.R"
+  valueReference = "1035"
+  description = "Resistance at temperature T_ref"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "15" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "62" startColumn = "3" endLine = "63" endColumn = "40" fileWritable = "true">
+  <Real useStart="true" start="2000.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.T_ref"
+  valueReference = "1036"
+  description = "Reference temperature"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "16" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "64" startColumn = "3" endLine = "64" endColumn = "78" fileWritable = "true">
+  <Real useStart="true" start="300.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.alpha"
+  valueReference = "1037"
+  description = "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "17" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "65" startColumn = "3" endLine = "66" endColumn = "93" fileWritable = "true">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="1/K" displayUnit="1/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.C"
+  valueReference = "1038"
+  description = "Capacitance"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "18" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "283" startColumn = "5" endLine = "283" endColumn = "54" fileWritable = "true">
+  <Real useStart="true" start="0.0000001" fixed="true" useNominal="false" nominal="1.0" min="0.0" max="1.7976931348623157E+308" unit="F" displayUnit="F" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.T"
+  valueReference = "1039"
+  description = "Fixed device temperature if useHeatPort = false"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "19" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
+  <Real useStart="true" start="293.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Ids"
+  valueReference = "1040"
+  description = "Saturation current"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "20" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "80" startColumn = "4" endLine = "80" endColumn = "69" fileWritable = "true">
+  <Real useStart="true" start="0.000001" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Vt"
+  valueReference = "1041"
+  description = "Voltage equivalent of temperature (kT/qn)"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "21" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "81" startColumn = "4" endLine = "82" endColumn = "50" fileWritable = "true">
+  <Real useStart="true" start="0.04" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Maxexp"
+  valueReference = "1042"
+  description = "Max. exponent for linear continuation"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "22" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "83" startColumn = "4" endLine = "84" endColumn = "46" fileWritable = "true">
+  <Real useStart="true" start="30.0" fixed="true" useNominal="false" nominal="1.0" min="1e-60" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.R"
+  valueReference = "1043"
+  description = "Parallel ohmic resistance"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "23" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "85" startColumn = "4" endLine = "85" endColumn = "76" fileWritable = "true">
+  <Real useStart="true" start="100000000.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Bv"
+  valueReference = "1044"
+  description = "Breakthrough voltage = Zener- or Z-voltage"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "24" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "86" startColumn = "4" endLine = "87" endColumn = "51" fileWritable = "true">
+  <Real useStart="true" start="5.1" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Ibv"
+  valueReference = "1045"
+  description = "Breakthrough knee current"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "25" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "88" startColumn = "4" endLine = "88" endColumn = "74" fileWritable = "true">
+  <Real useStart="true" start="0.7" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.Nbv"
+  valueReference = "1046"
+  description = "Breakthrough emission coefficient"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "26" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "89" startColumn = "4" endLine = "89" endColumn = "63" fileWritable = "true">
+  <Real useStart="true" start="0.74" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.T"
+  valueReference = "1047"
+  description = "Fixed device temperature if useHeatPort = false"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "27" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
+  <Real useStart="true" start="293.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Ids"
+  valueReference = "1048"
+  description = "Saturation current"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "28" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "80" startColumn = "4" endLine = "80" endColumn = "69" fileWritable = "true">
+  <Real useStart="true" start="0.000001" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Vt"
+  valueReference = "1049"
+  description = "Voltage equivalent of temperature (kT/qn)"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "29" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "81" startColumn = "4" endLine = "82" endColumn = "50" fileWritable = "true">
+  <Real useStart="true" start="0.04" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Maxexp"
+  valueReference = "1050"
+  description = "Max. exponent for linear continuation"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "30" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "83" startColumn = "4" endLine = "84" endColumn = "46" fileWritable = "true">
+  <Real useStart="true" start="30.0" fixed="true" useNominal="false" nominal="1.0" min="1e-60" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.R"
+  valueReference = "1051"
+  description = "Parallel ohmic resistance"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "31" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "85" startColumn = "4" endLine = "85" endColumn = "76" fileWritable = "true">
+  <Real useStart="true" start="100000000.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Bv"
+  valueReference = "1052"
+  description = "Breakthrough voltage = Zener- or Z-voltage"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "32" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "86" startColumn = "4" endLine = "87" endColumn = "51" fileWritable = "true">
+  <Real useStart="true" start="5.1" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Ibv"
+  valueReference = "1053"
+  description = "Breakthrough knee current"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "33" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "88" startColumn = "4" endLine = "88" endColumn = "74" fileWritable = "true">
+  <Real useStart="true" start="0.7" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.Nbv"
+  valueReference = "1054"
+  description = "Breakthrough emission coefficient"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "34" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Semiconductors.mo" startLine = "89" startColumn = "4" endLine = "89" endColumn = "63" fileWritable = "true">
+  <Real useStart="true" start="0.74" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.n.v"
+  valueReference = "1055"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="zDiode.v"
+  classIndex = "0" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.n.v"
+  valueReference = "1056"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="ground.p.v"
+  classIndex = "1" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.p.v"
+  valueReference = "1057"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="ground.p.v"
+  classIndex = "2" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.n.v"
+  valueReference = "1058"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="ground.p.v"
+  classIndex = "3" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.n.v"
+  valueReference = "1059"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="ground.p.v"
+  classIndex = "4" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.p.v"
+  valueReference = "1060"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.v"
+  classIndex = "5" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.n.v"
+  valueReference = "1061"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.v"
+  classIndex = "6" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.p.v"
+  valueReference = "1062"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.v"
+  classIndex = "7" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.p.v"
+  valueReference = "1063"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="sineVoltage.v"
+  classIndex = "8" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.p.i"
+  valueReference = "1064"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="zDiode.i"
+  classIndex = "9" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.n.i"
+  valueReference = "1065"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="zDiode.i"
+  classIndex = "10" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.n.i"
+  valueReference = "1066"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="zDiode.i"
+  classIndex = "11" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.p.i"
+  valueReference = "1067"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="zDiode.i"
+  classIndex = "12" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.i"
+  valueReference = "1068"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="zDiode.i"
+  classIndex = "13" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.p.i"
+  valueReference = "1069"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="sineVoltage.i"
+  classIndex = "14" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.p.i"
+  valueReference = "1070"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="sineVoltage.i"
+  classIndex = "15" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.i"
+  valueReference = "1071"
+  description = "Current flowing from pin p to pin n"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="sineVoltage.i"
+  classIndex = "16" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "174" startColumn = "5" endLine = "174" endColumn = "55" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.n.i"
+  valueReference = "1072"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="sineVoltage.i"
+  classIndex = "17" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.n.i"
+  valueReference = "1073"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="sineVoltage.i"
+  classIndex = "18" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.p.i"
+  valueReference = "1074"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.i"
+  classIndex = "19" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.n.i"
+  valueReference = "1075"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="CL.i"
+  classIndex = "20" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.T_heatPort"
+  valueReference = "1076"
+  description = "Temperature of HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="RL.T"
+  classIndex = "21" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "313" startColumn = "5" endLine = "313" endColumn = "70" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.p.i"
+  valueReference = "1077"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="RL.i"
+  classIndex = "22" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "53" startColumn = "5" endLine = "58" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.n.i"
+  valueReference = "1078"
+  description = "Current flowing into the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="RL.i"
+  classIndex = "23" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "93" startColumn = "5" endLine = "98" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="A" displayUnit="A" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.T_heatPort"
+  valueReference = "1079"
+  description = "Temperature of HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="Rv.T"
+  classIndex = "24" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "313" startColumn = "5" endLine = "313" endColumn = "70" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "sineVoltage.signalSource.y"
+  valueReference = "1080"
+  description = "Connector of Real output signal"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="sineVoltage.v"
+  classIndex = "25" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Blocks/Interfaces.mo" startLine = "276" startColumn = "5" endLine = "277" endColumn = "68" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "Rv.p.v"
+  valueReference = "1081"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="sineVoltage.v"
+  classIndex = "26" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "CL.p.v"
+  valueReference = "1082"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.v"
+  classIndex = "27" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "47" startColumn = "5" endLine = "52" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.v"
+  valueReference = "1083"
+  description = "Voltage drop between the two pins (= p.v - n.v)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="CL.v"
+  classIndex = "28" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "173" startColumn = "5" endLine = "173" endColumn = "67" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.n.v"
+  valueReference = "1084"
+  description = "Potential at the pin"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "negatedAlias" aliasVariable="zDiode.v"
+  classIndex = "29" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "87" startColumn = "5" endLine = "92" endColumn = "61" fileWritable = "true">
+  <Real useStart="false" start="0.0" fixed="false" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="V" displayUnit="V" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.T_heatPort"
+  valueReference = "1085"
+  description = "Temperature of HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="zDiode1.T"
+  classIndex = "30" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "313" startColumn = "5" endLine = "313" endColumn = "70" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.T_heatPort"
+  valueReference = "1086"
+  description = "Temperature of HeatPort"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal"
+  alias = "alias" aliasVariable="zDiode.T"
+  classIndex = "31" classType = "rAli"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "313" startColumn = "5" endLine = "313" endColumn = "70" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+
+
+  <ScalarVariable
+  name = "Rv.useHeatPort"
+  valueReference = "1087"
+  description = "=true, if HeatPort is enabled"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "0" classType = "bPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "304" startColumn = "5" endLine = "305" endColumn = "71" fileWritable = "true">
+  <Boolean useStart="true" start="false" fixed="true"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "RL.useHeatPort"
+  valueReference = "1088"
+  description = "=true, if HeatPort is enabled"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "1" classType = "bPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "304" startColumn = "5" endLine = "305" endColumn = "71" fileWritable = "true">
+  <Boolean useStart="true" start="false" fixed="true"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode.useHeatPort"
+  valueReference = "1089"
+  description = "=true, if HeatPort is enabled"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "2" classType = "bPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "304" startColumn = "5" endLine = "305" endColumn = "71" fileWritable = "true">
+  <Boolean useStart="true" start="false" fixed="true"   />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "zDiode1.useHeatPort"
+  valueReference = "1090"
+  description = "=true, if HeatPort is enabled"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "3" classType = "bPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "304" startColumn = "5" endLine = "305" endColumn = "71" fileWritable = "true">
+  <Boolean useStart="true" start="false" fixed="true"   />
+  </ScalarVariable>
+
+  </ModelVariables>
+  
+  
+</fmiModelDescription>
+

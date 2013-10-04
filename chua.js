@@ -1,3 +1,23 @@
+self.addEventListener('message', function(e) {
+  var data = e.data;
+  if (!data) return;
+  var result = {};
+  try {
+      Module.FS_createDataFile("/", data.basename + "_init.xml", data.xmlstring, true, true)
+      shouldRunNow = true;
+      Module.run();
+      result.csv = intArrayToString(FS.findObject(data.basename + "_res.csv").contents);
+      result.status = "Simulation finished";
+      FS.unlink("/" + data.basename + "_init.xml");    // delete the input file
+  } catch(err) {
+      result.status = "Simulation failed";
+  };
+  self.postMessage(result);
+}, false);
+// var Module = {
+//     'noInitialRun': true
+// };
+//function om_create() {
 // Note: For maximum-speed code, see "Optimizing Code" on the Emscripten wiki, https://github.com/kripken/emscripten/wiki/Optimizing-Code
 // Note: Some Emscripten settings may limit the speed of the generated code.
 // The Module object: Our interface to the outside world. We import
@@ -7818,10 +7838,16 @@ if (Module['preInit']) {
   }
 }
 // shouldRunNow refers to calling main(), not run().
-var shouldRunNow = true;
+var shouldRunNow = false;
 if (Module['noInitialRun']) {
   shouldRunNow = false;
 }
-//run();
+run();
 // {{POST_RUN_ADDITIONS}}
 // {{MODULE_ADDITIONS}}
+    shouldRunNow = true;
+    self['Runtime'] = Runtime;
+    self['FS'] = FS;
+// }
+
+// om_create();

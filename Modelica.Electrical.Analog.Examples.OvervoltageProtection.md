@@ -3,14 +3,14 @@
 ```
 
 ```yaml script=dataloader
-xml: chua.xml 
+xml: Modelica.Electrical.Analog.Examples.OvervoltageProtection_init.xml 
 ```
 
 
 # OpenModelica simulation example
-## Modelica.Electrical.Analog.Examples.ChuaCircuit
+## Modelica.Electrical.Analog.Examples.OvervoltageProtection
 
-<img src=chua.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
+<img src=Modelica.Electrical.Analog.Examples.OvervoltageProtection.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
 
 
 ```yaml jquery=jsonForm class="form-horizontal" name=frm 
@@ -18,7 +18,7 @@ schema:
   stopTime:
     type: string
     title: Stop time, sec
-    default: 10000.0
+    default: 0.4
   intervals:
     type: string
     title: Output intervals
@@ -26,7 +26,7 @@ schema:
   tolerance:
     type: string
     title: Tolerance
-    default: 0.0001
+    default: 0.0000001
   solver: 
     type: string
     title: Solver
@@ -36,18 +36,10 @@ schema:
       - rungekutta
       - dasslwort
       - dassltest
-  L: 
+  RL: 
     type: string
-    title: L, henries
-    default: 18.0
-  C1: 
-    type: string
-    title: C1, farads
-    default: 10.0
-  C2: 
-    type: string
-    title: C2, farads
-    default: 100.0
+    title: Load resistance, ohms
+    default: 2000.0
 form: 
   - "*"
 params:
@@ -68,9 +60,7 @@ defex.attr("tolerance", tolerance)
 defex.attr("solver", solver)
 
 // Set some model parameters
-$xml.find("ScalarVariable[name = 'L.L']").find("Real").attr("start", L)
-$xml.find("ScalarVariable[name = 'C1.C']").find("Real").attr("start", C1)
-$xml.find("ScalarVariable[name = 'C2.C']").find("Real").attr("start", C2)
+$xml.find("ScalarVariable[name = 'RL.R']").find("Real").attr("start", RL)
 
 // Write out the initialization file
 xmlstring = new XMLSerializer().serializeToString(xml)
@@ -82,10 +72,10 @@ $('#statustimer').tinyTimer({ from: Date.now() });
 timer = $("#statustimer").data("tinyTimer")
 
 // Start the simulation!
-basename = "Modelica.Electrical.Analog.Examples.ChuaCircuit"
+basename = "Modelica.Electrical.Analog.Examples.OvervoltageProtection"
 
 if (typeof(wworker) != "undefined" && isRunning) wworker.terminate() 
-if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker("chua.js")
+if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker(basename + ".js")
 isRunning = true
 
 wworker.postMessage({basename: basename, xmlstring: xmlstring})
@@ -107,6 +97,8 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
 wworker.addEventListener("message", function(e) {
     $("#statustext").html(e.data.status)
+    timer.stop();
+    isRunning = false
     x = $.csv.toArrays(e.data.csv, {onParseValue: $.csv.hooks.castToScalar})
     
     // `header` has the column names. The first is the time, and the rest
@@ -155,15 +147,11 @@ wworker.addEventListener("message", function(e) {
       ]
     };
     
-    // $(dom_ele).children(".jsresult").html("");
-    // $(dom_ele).children(".jsresult").jsonForm(jsonform);
     $("#yaxisform").html("");
     $("#yaxisform").jsonForm(jsonform);
     $("#xaxisform").html("");
     $("#xaxisform").jsonForm(jsonformX);
-    timer.stop();
     $("#plotdiv").calculate();
-    isRunning = false
     
 }, false);
 
@@ -180,6 +168,16 @@ if (typeof(header) != "undefined") {
 ```
 
 <div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
+
+## Information
+
+This example is a simple circuit for overvoltage protection. If the
+voltage `zDiode_1.n.v` is too high, the Diode `zDiode_2` breaks through
+and the voltage gets down.
+
+The simulation end time should be set to 0.4. To get the typical
+behaviour please plot `sineVoltage.p.v`, `RL.p.v`, `zDiode_2.n.v` and
+`zDiode_1.n.i`.
 
 ## Comments
 
@@ -198,7 +196,7 @@ For more information on compiling OpenModelica to JavaScript, see
 
 The user interface was created in
 [mdpad](http://tshort.github.io/mdpad/). See
-[chua.md](http://tshort.github.io/mdpad/chua.md) for the Markdown code
+[Modelica.Electrical.Analog.Examples.OvervoltageProtection.md](Modelica.Electrical.Analog.Examples.OvervoltageProtection.md) for the Markdown code
 for this page.
 
 This should work in both Firefox and Chrome. It doesn't work in

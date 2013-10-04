@@ -85,7 +85,7 @@ timer = $("#statustimer").data("tinyTimer")
 basename = "Modelica.Electrical.Analog.Examples.ChuaCircuit"
 
 if (typeof(wworker) != "undefined" && isRunning) wworker.terminate() 
-if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker("chua.js")
+if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker(basename + ".js")
 isRunning = true
 
 wworker.postMessage({basename: basename, xmlstring: xmlstring})
