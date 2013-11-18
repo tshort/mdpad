@@ -1,55 +1,62 @@
 ```yaml script=scriptloader
-- tinytimer.js
+- lib/tinytimer.js
 ```
 
 ```yaml script=dataloader
 xml: Modelica.Blocks.Examples.PID_Controller_init.xml 
 ```
 
+<style media="screen" type="text/css">
+label {font-weight:normal; size: 0.9em}
+</style>
+
+
+
 
 # OpenModelica simulation example
 ## Modelica.Blocks.Examples.PID_Controller
 
-<img src=Modelica.Blocks.Examples.PID_Controller.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
+<br/>
+<br/>
+
+<div id="status" style="text-align:center"><span id="statustext">
+Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
+
+<br/>
+
+<div class = "row">
+<div class = "col-md-5">
+
+<br/>
+<br/>
 
 
-```yaml jquery=jsonForm class="form-horizontal" name=frm 
-schema: 
-  stopTime:
-    type: string
+```yaml jquery=dform
+html: 
+  - name: stopTime
+    type: number
     title: Stop time, sec
     default: 4.0
-  intervals:
-    type: string
+  - name: intervals
+    type: number
     title: Output intervals
     default: 500
-  tolerance:
-    type: string
+  - name: tolerance
+    type: number
     title: Tolerance
     default: 0.0000001
-  solver: 
-    type: string
-    title: Solver
-    enum: 
-      - dassl
-      - euler
-      - rungekutta
-  k: 
-    type: string
+  - name: k 
+    type: number
     title: Controller gain
     default: 100
-  Ti: 
-    type: string
+  - name: Ti 
+    type: number
     title: Time constant of integrator block, sec
     default: 0.1
-  Td: 
-    type: string
+  - name: Td 
+    type: number
     title: Time constant of derivative block, sec
     default: 0.1
-form: 
-  - "*"
-params:
-  fieldHtmlClass: input-medium
 ```
 
 ```js
@@ -63,7 +70,6 @@ defex = $xml.find("DefaultExperiment")
 defex.attr("stopTime", stopTime)
 defex.attr("stepSize", +stopTime / intervals)
 defex.attr("tolerance", tolerance)
-defex.attr("solver", solver)
 
 // Set some model parameters
 $xml.find("ScalarVariable[name = 'PI.k']").find("Real").attr("start", k)
@@ -73,7 +79,7 @@ $xml.find("ScalarVariable[name = 'PI.Td']").find("Real").attr("start", Td)
 // Write out the initialization file
 xmlstring = new XMLSerializer().serializeToString(xml)
 
-$("#statustext").html('<img src="wait.gif" /> Simulation running')
+$("#statustext").html('Simulation running')
 $("#statustimer").html("");
 $('#statustimer').tinyTimer({ from: Date.now() });
 
@@ -98,7 +104,7 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
 ## Results
 
-<div id="yaxisform"> </div>
+
 
 ```js
 // read the csv file with the simulation results
@@ -165,6 +171,34 @@ wworker.addEventListener("message", function(e) {
 
 ```
 
+</div>
+
+
+
+<div class = "col-md-7">
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="mytab">
+  <li class="active"><a href="#model" data-toggle="tab">Model</a></li>
+  <li><a href="#results" data-toggle="tab">Results</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <!-- Model pane -->
+  <div class="tab-pane active" id="model">
+
+<img src="Modelica.Blocks.Examples.PID_Controller" style="width:100%; background-color:#ffffff; border:2px solid gray" />
+
+  </div>
+
+  <!-- Results pane -->
+  <div class="tab-pane" id="results">
+
+</br>
+
+<div id="yaxisform"> </div>
+
 ```js id=plotdiv
 if (typeof(header) != "undefined") {
     yidx = header.indexOf(graphvar);
@@ -176,6 +210,13 @@ if (typeof(header) != "undefined") {
 ```
 
 <div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
+
+
+  </div>
+</div>
+
+</div>
+</div>
 
 ## Demonstrates the usage of a Continuous.LimPID controller
 
@@ -211,6 +252,4 @@ The user interface was created in
 for this page.
 
 This should work in both Firefox and Chrome. It doesn't work in
-Internet Explorer. Sometimes, the simulation fails with "out of
-memory" in Firefox 23 in Windows. I haven't seen that with Firefox 20
-on Linux.
+Internet Explorer. 

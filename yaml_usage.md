@@ -56,8 +56,6 @@ Normally, you will supply either `name` or one of the script
 parameters. Here are some common entries along with their use:
 
 - ` ```text name=a` -- Load the text into JavaScript variable `a`.
-- ` ```yaml jquery=jsonform` -- Create a form using
-  [JSON Form](https://github.com/joshfire/jsonform).
 - ` ```yaml jquery=dform` -- Create a form using
   [jQuery.dForm](http://daffl.github.io/jquery.dform/).
 - ` ```yaml script=scriptloader` -- Load the JavaScript scripts listed.
@@ -173,101 +171,83 @@ println("header row = " + z[0])
 
 # Form creation
 
-Two libraries are included to help create form elements:
+A library is included to help create form elements:
 
-- [JSON Form](https://github.com/joshfire/jsonform)
 - [jQuery.dForm](http://daffl.github.io/jquery.dform/)
 
-Both are similar in that you create a data structure (YAML or JSON
-format), and pass that to a function that create the form on the page.
-Both functions use jQuery-style arguments, so you need `jquery=dform`
-or `jquery=jsonform`.
+You create a data structure (YAML or JSON format), and pass that to a
+function that create the form on the page. This uses jQuery-style
+arguments, so you need `jquery=dform` on the YAML block.
 
-Neither is perfect (for my uses, anyway). I tend to use JSON Form
-more, but it can be verbose if you want something other than default
-forms. [Alpaca](http://www.alpacajs.org/) is another interesting
-looking alternative, but the JavaScript downloads are huge.
+I have included some "subscriber" extensions to jquery.dform:
 
-## JSON Form
+  - *bs3caption* - Use this to specify a caption next to a form
+    element. This wraps each form element to support
+    [Bootstrap 3](http://getbootstrap.com).
+  - *choices* - Use this in select boxes to pass an array of values to
+    use in the select box. This is like the *options* subscriber built
+    into dform. 
 
-Here is an example using JSON Form:
+All of the apps [here](http://distributionhandbook.com/calculators/)
+use dform with Bootstrap 3 with both vertical and horizontal form
+arrangements.
 
-```yaml jquery=jsonForm class="form-horizontal"
-schema: 
-  color:
-    title: Color
-    type: string
-    enum:
-      - red
-      - blue
-      - green
-      - gray
-      - white
-      - black
-    default: gray
-  done:
-    type: boolean
-    title: Fully done
-    default: true
-  age:
-    type: integer
-    title: Age
-    minimum: 7
-    maximum: 77
-  name:
-    type: string
-    title: Name
-    default: Tim
-form:
-  - "*"
-```
+[Alpaca](http://www.alpacajs.org/) and
+[JSON Form](https://github.com/joshfire/jsonform) are other
+interesting alternatives.
 
+## Form example
 
+Here is an example using jquery.dform:
 
-## jQuery.dForm
-
-Here's another example using jQuery.dForm.
 
 ```yaml jquery=dform
-action : index.html
-method : get
-html :
-    - type : p
-      html : You must login
-    - name : username
-      id : txt-username
-      caption : Username
-      type : text
-      placeholder : E.g. user@example.com
-    - type : br
-    - name : password
-      caption : Password
-      type : password
-```
-
-jQuery-dForm also supports jQuery-UI form elements. Here's a form
-entry with autocomplete added. Type characters to enter a US state.
-
-```yaml jquery=dform
-name : state
-caption : State
-type : text
-autocomplete: 
-    source: [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District Of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, PALAU, Pennsylvania, PUERTO RICO, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming]
-```
-
-Here's a custom date entry form using jQuery-UI and DForm:
-
-```yaml jquery=dform
+type: div
+class: row
 html:
-  - name : date
-    caption : Date
-    type : text
-    value : 06/01/2013
-    datepicker:
+  type: div
+  class: col-md-6 form-horizontal
+  col1class : col-sm-6
+  col2class : col-sm-6
+  html:
+    - name: color
+      bs3caption: Color
+      type: select
+      choices:
+        - red
+        - blue
+        - green
+        - gray
+        - white
+        - black
+      default: gray
+    - name: done
+      type: checkbox
+      bs3caption: Fully done
+      value: true
+    - name: age
+      type: number
+      bs3caption: Age
+      value: 40
+    - name: name
+      type: text
+      bs3caption: Name
+      value: Tim
+    - name : state
+      bs3caption : State (autocomplete)
+      type : text
+      autocomplete:
+        source: [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District Of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, PALAU, Pennsylvania, PUERTO RICO, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming]
+    - name : date
+      bs3caption : Date
+      type : text
+      value : 06/01/2013
+      datepicker:
 ```
 
 ```js 
+println("name = " + name)
+println("age = " + age)
 println("state = " + state)
 println("date = " + date)
 ```

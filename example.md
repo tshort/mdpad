@@ -46,36 +46,40 @@ println("z = " + z)
 ```
 
 You can also enter form elements directly as HTML, or you can use YAML
-to generate them. Here's an example using
-[JSON Form](https://github.com/joshfire/jsonform) to generate the form
-inputs. Everytime a form element changes, the document re-runs.
+to generate them. Here's an example using the
+[jQuery.dForm package](http://daffl.github.io/jquery.dform/) to
+generate the form inputs. Everytime a form element changes, the
+document re-runs.
 
-```yaml jquery=jsonForm class="form-horizontal"
-schema: 
-  choice: 
-    type: string
-    title: Choice
-    enum: 
-      - "choice-1"
-      - "Second choice"
-      - "This is third"
-  name:
-    type: string
-    title: Name
-    default: Tim
-  age:
-    type: number
-    title: Age
-    default: 34
-form:
-  - "*"
+```yaml jquery=dform
+type: div
+class: row
+html:
+  type: div
+  class: col-md-4
+  html:
+    - name: choice 
+      type: select
+      bs3caption: Choice
+      choices: 
+        - "Choice-1"
+        - "Second choice"
+        - "This is third"
+    - name: myname
+      type: text
+      bs3caption: Name
+      value: Tim
+    - name: age
+      type: number
+      bs3caption: Age
+      value: 34
 ```
 
 Now, we should see these results update as we update the form elements:
 
 ```js
 println("choice = " + choice)
-println("name = " + name)
+println("name = " + myname)
 println("age = " + age)
 ```
 
