@@ -94,12 +94,10 @@ Here are several examples:
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
 
-Here's a real-world example in my area of work:
+Here are several real-world example in my area of work:
 
-* `1584.md`
-  [[Markdown](https://tshort.github.com/mdpad/1584.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?1584.md)] --
-  IEEE 1584 Arc Flash Calculator.
+  - [http://distributionhandbook/calculators/](http://distributionhandbook/calculators/)
+
 
 Here's an interface to a simulation compiled using
 [Emscripten](http://emscripten.org/).
@@ -109,11 +107,12 @@ Here's an interface to a simulation compiled using
   [[Live results](https://tshort.github.com/mdpad/mdpad.html?chua.md)] --
   OpenModelica simulation model of a Chua circuit.
 
+
 ## Features
 
 *Plotting* -- There are several very good JavaScript libraries for plotting and
 graphing. I've tried out and included Flot and HighCharts in
-`mdpad.html`. `mdpad.html` includes support for D3, NVD3, and Vega.
+`mdpad.html`. 
 
 *YAML* -- Enter data into JavaScript using [YAML](www.yaml.org). Here
 is an example:
@@ -127,11 +126,12 @@ Now, in a JavaScript block, you can access `d.fred` or `d.wilma`.
 
 *Form elements* -- Using the `freq` = `___(3.0)` notation described
 above is one way to enter form elements. For more complicated form
-arrangements, you can directly use HTML or use YAML. Two JavaScript
-libraries are available to generate forms from YAML:
-[jsonform](https://github.com/joshfire/jsonform) and
-[jQuery.dForm](http://daffl.github.io/jquery.dform/). When the user
-updates a form element, the whole page recalculates.
+arrangements, you can directly use HTML or use YAML. I like using the
+[jQuery.dForm package](http://daffl.github.io/jquery.dform/) to create
+form elements. You can specify form element characteristics as YAML or
+JSON, and nice-looking forms are generated with the option of using
+[Bootstrap 3](http://getbootstrap.com). When the user updates a form
+element, the whole page recalculates.
 
 
 ## Installing / Using
