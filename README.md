@@ -80,12 +80,6 @@ Here are several examples:
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
      package.
 
-* `d3.md`
-  ([Live results](https://tshort.github.com/mdpad/mdpad.html?d3.md))
-  ([Markdown](https://tshort.github.com/mdpad/d3.md))
-  -- Graphical examples using [D3](http://d3js.org/),
-     [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
-
 Here are several real-world example in my area of work:
 
 * [http://distributionhandbook.com/calculators/](http://distributionhandbook.com/calculators/)
