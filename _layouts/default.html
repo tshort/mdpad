@@ -4,20 +4,10 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>{{ page.title }}</title>
   <meta name="author" content="Tom Short" />
-  <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount','']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script');
-      ga.async = true;
-      ga.type = 'text/javascript';
-      ga.src = 'http://www.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga,s);
-    })();
-  </script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen, projection" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -25,16 +15,7 @@
 {{ content }}
 </div>
 
-<br/><br/><!-- hack to give some space at the bottom -->
+<br/><br/>
 
-<script type="text/javascript">
-  (function() {
-    var links = document.getElementsByTagName('a');
-    var regex = new RegExp('^http://([a-z]+\.)*'+window.location.hostname);
-    for (var i=0; i < links.length; i++)
-       if (!links[i].href.match(regex))
-           links[i].setAttribute('target','_blank');
-  })()
-</script>
 </body>
 </html>

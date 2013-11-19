@@ -61,46 +61,42 @@ In the example above, a text entry box is specified with `freq` =
 text box (a string). The default value is "3.0". Any form elements
 will be translated into JavaScript variables. 
 
-## Examples
+Here are several examples:
 
-Here are several examples
-
-* `example.md` 
-  [[Markdown](https://tshort.github.com/mdpad/example.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?example.md)]
+* `example.md` [example.md](https://tshort.github.com/mdpad/mdpad.html?example.md)
+  ([Markdown](https://tshort.github.com/mdpad/example.md))
+  ([Live results](https://tshort.github.com/mdpad/mdpad.html?example.md))
   -- Covers forms, data input, and plotting.
 
 * `yaml_usage.md`
-  [[Markdown](https://tshort.github.com/mdpad/yaml_usage.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?yaml_usage.md)]
+  ([Markdown](https://tshort.github.com/mdpad/yaml_usage.md))
+  ([Live results](https://tshort.github.com/mdpad/mdpad.html?yaml_usage.md))
   -- Covers YAML and text input blocks and uses for loading CSV, JSON,
   XML, and YAML data as well as loading scripts and creating forms.
 
 * `numericjs.md`
-  [[Markdown](https://tshort.github.com/mdpad/numericjs.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?numericjs.md)]
+  ([Markdown](https://tshort.github.com/mdpad/numericjs.md))
+  ([Live results](https://tshort.github.com/mdpad/mdpad.html?numericjs.md))
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
      package.
 
 * `d3.md`
-  [[Markdown](https://tshort.github.com/mdpad/d3.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?d3.md)]
+  ([Markdown](https://tshort.github.com/mdpad/d3.md))
+  ([Live results](https://tshort.github.com/mdpad/mdpad.html?d3.md))
   -- Graphical examples using [D3](http://d3js.org/),
      [NVD3](http://nvd3.org/), and [Vega](http://trifacta.github.io/vega/).
 
-Here's a real-world example in my area of work:
+Here are several real-world example in my area of work:
 
-* `1584.md`
-  [[Markdown](https://tshort.github.com/mdpad/1584.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?1584.md)] --
-  IEEE 1584 Arc Flash Calculator.
+* [http://distributionhandbook/calculators/](http://distributionhandbook/calculators/)
+
 
 Here's an interface to a simulation compiled using
 [Emscripten](http://emscripten.org/).
 
-* `chua.md`
-  [[Markdown](https://tshort.github.com/mdpad/chua.md)]
-  [[Live results](https://tshort.github.com/mdpad/mdpad.html?chua.md)] --
+* `Modelica.Electrical.Analog.Examples.ChuaCircuit.md`
+  ([Markdown](https://tshort.github.com/mdpad/Modelica.Electrical.Analog.Examples.ChuaCircuit.md))
+  ([Live results](https://tshort.github.com/mdpad/mdpad.html?Modelica.Electrical.Analog.Examples.ChuaCircuit.md)) --
   OpenModelica simulation model of a Chua circuit.
 
 ## Features
@@ -123,12 +119,12 @@ Now, in a JavaScript block, you can access `d.fred` (`27`) or
 
 *Form elements* -- Using the `freq` = `___(3.0)` notation described
 above is one way to enter form elements. For more complicated form
-arrangements, you can directly use HTML or use YAML. Two JavaScript
-libraries are available to generate forms from YAML:
-[jsonform](https://github.com/joshfire/jsonform) and
-[jQuery.dForm](http://daffl.github.io/jquery.dform/). When the user
-updates a form element, the whole page recalculates.
-
+arrangements, you can directly use HTML or use YAML. I like using the
+[jQuery.dForm package](http://daffl.github.io/jquery.dform/) to create
+form elements. You can specify form element characteristics as YAML or
+JSON, and nice-looking forms are generated with the option of using
+[Bootstrap 3](http://getbootstrap.com). When the user updates a form
+element, the whole page recalculates.
 
 ## Installing / Using
 

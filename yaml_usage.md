@@ -171,15 +171,14 @@ println("header row = " + z[0])
 
 # Form creation
 
-A library is included to help create form elements:
+[jQuery.dForm](http://daffl.github.io/jquery.dform/) is included to
+help create form elements.
 
-- [jQuery.dForm](http://daffl.github.io/jquery.dform/)
-
-You create a data structure (YAML or JSON format), and pass that to a
-function that create the form on the page. This uses jQuery-style
+You create a data structure with a YAML block, and pass that to a
+function that creates the form on the page. This uses jQuery-style
 arguments, so you need `jquery=dform` on the YAML block.
 
-I have included some "subscriber" extensions to jquery.dform:
+I have included some "subscriber" extensions to jQuery.dForm:
 
   - *bs3caption* - Use this to specify a caption next to a form
     element. This wraps each form element to support
@@ -241,7 +240,7 @@ html:
     - name: done
       type: checkbox
       bs3caption: Fully done
-      value: true
+      checked: checked
     - name: age
       type: number
       bs3caption: Age
