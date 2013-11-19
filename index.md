@@ -88,7 +88,7 @@ Here are several examples:
   -- Example using the [Numeric Javascript](http://www.numericjs.com/)
      package.
 
-Here are several real-world example in my area of work:
+Here are several real-world examples in my area of work:
 
 * [http://distributionhandbook.com/calculators/](http://distributionhandbook.com/calculators/)
 
