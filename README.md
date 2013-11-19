@@ -88,7 +88,7 @@ Here are several examples:
 
 Here are several real-world example in my area of work:
 
-* [http://distributionhandbook/calculators/](http://distributionhandbook/calculators/)
+* [http://distributionhandbook.com/calculators/](http://distributionhandbook.com/calculators/)
 
 
 Here's an interface to a simulation compiled using
