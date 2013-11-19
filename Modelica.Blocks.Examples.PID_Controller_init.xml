@@ -52,7 +52,7 @@
     tolerance      = "0.000001"
     solver         = "dassl"
     outputFormat   = "csv"
-    variableFilter = ".*" />
+    variableFilter = "integrator.y|inertia1.w|PI.limiter.u|PI.y" />
     
   <!-- variables in the model -->
   <ModelVariables>

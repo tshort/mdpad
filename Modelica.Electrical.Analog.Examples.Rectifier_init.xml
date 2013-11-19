@@ -52,7 +52,7 @@
     tolerance      = "0.000001"
     solver         = "dassl"
     outputFormat   = "csv"
-    variableFilter = ".*" />
+    variableFilter = "iAC.*|uAC.*|uDC" />
     
   <!-- variables in the model -->
   <ModelVariables>

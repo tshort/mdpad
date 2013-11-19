@@ -13,8 +13,8 @@ label {font-weight:normal; size: 0.9em}
 
 
 
-# OpenModelica simulation example
-## Modelica.Blocks.Examples.PID_Controller
+<h1>OpenModelica simulation example</h1>
+<h2>Modelica.Blocks.Examples.PID_Controller</h1></h2>
 
 <br/>
 <br/>
@@ -29,34 +29,41 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 
 ```yaml jquery=dform
+class : form-horizontal
+col1class : col-sm-8
+col2class : col-sm-4
 html: 
   - name: stopTime
     type: number
-    title: Stop time, sec
-    default: 4.0
+    bs3caption: Stop time, sec
+    value: 4.0
   - name: intervals
     type: number
-    title: Output intervals
-    default: 500
+    bs3caption: Output intervals
+    value: 500
   - name: tolerance
     type: number
-    title: Tolerance
-    default: 0.0000001
+    bs3caption: Tolerance
+    value: 0.0000001
   - name: k 
     type: number
-    title: Controller gain
-    default: 100
+    bs3caption: Controller gain
+    value: 100
   - name: Ti 
     type: number
-    title: Time constant of integrator block, sec
-    default: 0.1
+    bs3caption: Ti, integrator block, sec
+    value: 0.1
   - name: Td 
     type: number
-    title: Time constant of derivative block, sec
-    default: 0.1
+    bs3caption: Td, derivative block, sec
+    value: 0.1
 ```
 
 ```js
@@ -99,11 +106,6 @@ wworker.addEventListener('error', function(event) {
 
 ```
 
-<div id="status" style="text-align:center"><span id="statustext">
-Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
-
-## Results
-
 
 
 ```js
@@ -124,47 +126,33 @@ wworker.addEventListener("message", function(e) {
     if (typeof(graphvarX) == "undefined") graphvarX = header[0];
     
     var jsonform = {
-      schema: {
-        graphvar: {
-          type: "string",
-          title: "Plot variable",
-          default: graphvar,
-          enum: header
-        }
-      },
-      form: [
-        {
-          key: "graphvar",
-          onChange: function (evt) {
-            calculate_forms();
-            $("#plotdiv").calculate();
-          }
-        }
-      ]
-    };
+      html: {
+        type: "select",
+        bs3caption: "Plot variable",
+        name: "graphvar",
+        selectvalue: graphvar,
+        choices: header
+    }};
     var jsonformX = {
-      schema: {
-        graphvarX: {
-          type: "string",
-          default: graphvarX,
-          enum: x.slice(0,1)[0]
-        }
-      },
-      form: [
-        {
-          key: "graphvarX",
-          onChange: function (evt) {
-            calculate_forms();
-            $("#plotdiv").calculate();
-          }
-        }
-      ]
-    };
+      html: {
+        type: "select",
+        bs3caption: "",
+        name: "graphvarX",
+        selectvalue: graphvarX,
+        choices: header
+    }};
+    updatefun = function (evt) {
+        calculate_forms();
+        $("#plotdiv").calculate();
+    }
+    
     
     $("#yaxisform").html("");
-    $("#yaxisform").jsonForm(jsonform);
+    $("#yaxisform").dform(jsonform);
+    $("#yaxisform").change(updatefun);
     $("#xaxisform").html("");
-    $("#xaxisform").jsonForm(jsonformX);
+    $("#xaxisform").dform(jsonformX);
+    $("#xaxisform").change(updatefun);
     $("#plotdiv").calculate();
     
 }, false);
@@ -188,7 +176,7 @@ wworker.addEventListener("message", function(e) {
   <!-- Model pane -->
   <div class="tab-pane active" id="model">
 
-<img src="Modelica.Blocks.Examples.PID_Controller" style="width:100%; background-color:#ffffff; border:2px solid gray" />
+<img src="Modelica.Blocks.Examples.PID_Controller.svg" style="width:100%; background-color:#ffffff; border:2px solid gray" />
 
   </div>
 
@@ -197,10 +185,11 @@ wworker.addEventListener("message", function(e) {
 
 </br>
 
-<div id="yaxisform"> </div>
+<div id="yaxisform" style="width:15em; position:relative"> </div>
 
 ```js id=plotdiv
 if (typeof(header) != "undefined") {
+    $("#mytab a:last").tab("show"); // Select last tab
     yidx = header.indexOf(graphvar);
     xidx = header.indexOf(graphvarX);
     // pick out the column to plot
@@ -209,7 +198,7 @@ if (typeof(header) != "undefined") {
 }
 ```
 
-<div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
+<div id="xaxisform" class="center-block" style="text-align:center; width:15em; position:relative"> </div>
 
 
   </div>

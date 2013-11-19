@@ -107,10 +107,10 @@ println("lorem = \n************************\n" + lorem + "\n********************
 The JavaScript function `scriptloader` is a helper for loading
 scripts. Here is an example for loading two graphics packages:
 
-```yaml script=scriptloader
-- //cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js
-- //cdnjs.cloudflare.com/ajax/libs/nvd3/1.0.0-beta/nv.d3.min.js
-```
+    ```yaml script=scriptloader
+    - //cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js
+    - //cdnjs.cloudflare.com/ajax/libs/nvd3/1.0.0-beta/nv.d3.min.js
+    ```
 
 An array of scripts are passed. The leading `-` indicates an array
 element in YAML.
@@ -184,9 +184,25 @@ I have included some "subscriber" extensions to jquery.dform:
   - *bs3caption* - Use this to specify a caption next to a form
     element. This wraps each form element to support
     [Bootstrap 3](http://getbootstrap.com).
+  - *form-horizontal* - If you add the class *form-horizontal* to the
+    form, the Bootstrap form will be arranged with the captions on the
+    left and the form elements on the right. You can also add the
+    parameters *col1class* and *col2class* to specify the classes for
+    the left and right columns. These are normally used to specify
+    column widths. The column widths normally should add to 12. The
+    form example at the end of the page uses a horizontal form with
+    the following specification:
+    
+>       class: form-horizontal
+>       col1class : col-sm-6
+>       col2class : col-sm-6
+       
   - *choices* - Use this in select boxes to pass an array of values to
     use in the select box. This is like the *options* subscriber built
     into dform. 
+
+  - *selectvalue* - This subscriber allows one to set the default for
+    the select choices or options.
 
 All of the apps [here](http://distributionhandbook.com/calculators/)
 use dform with Bootstrap 3 with both vertical and horizontal form
@@ -213,6 +229,7 @@ html:
     - name: color
       bs3caption: Color
       type: select
+      selectvalue: blue
       choices:
         - red
         - blue
@@ -243,6 +260,11 @@ html:
       type : text
       value : 06/01/2013
       datepicker:
+    <!-- - name: mph -->
+    <!--   type: slider -->
+    <!--   value: 65 -->
+    <!--   step: 2 -->
+    <!--   bs3caption: Speed, mph -->
 ```
 
 ```js 
@@ -250,5 +272,6 @@ println("name = " + name)
 println("age = " + age)
 println("state = " + state)
 println("date = " + date)
+<!-- println("speed = " + mph + " mph") -->
 ```
 

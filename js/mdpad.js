@@ -6,7 +6,7 @@ var deferred = new $.Deferred();  // Keeps track of things that need to load bef
 
 
 // when the DOM loads
-$(document).ready(function() {
+head.ready(function() {
     $.ajax({
         type: "GET",
         url: window.location.search.substring(1),
@@ -19,7 +19,7 @@ $(document).ready(function() {
             $(':input').change(function() {
                 calculate();
             });
-           $(":input").keypress(function (e) {
+            $(":input").keypress(function (e) {
                   if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
                       calculate();
                       return false;

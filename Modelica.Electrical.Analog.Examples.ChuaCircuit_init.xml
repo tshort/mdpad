@@ -11,8 +11,8 @@
   
   guid                                = "{8c4e810f-3df3-4a00-8276-176fa3c9f9e0}"
   
-  generationTool                      = "OpenModelica Compiler 1.9.0 RC1+dev (r17499)"
-  generationDateAndTime               = "2013-10-03T09:49:16Z"
+  generationTool                      = "OpenModelica Compiler 1.9.1+dev (r17647)"
+  generationDateAndTime               = "2013-10-10T12:43:45Z"
   
   variableNamingConvention            = "structured"
   
@@ -52,7 +52,7 @@
     tolerance      = "0.000001"
     solver         = "dassl"
     outputFormat   = "csv"
-    variableFilter = ".*" />
+    variableFilter = "C1.v|C2.v|L.i|Nr.i" />
     
   <!-- variables in the model -->
   <ModelVariables>
@@ -278,92 +278,92 @@
   <Real useStart="true" start="18.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="H" displayUnit="H" />
   </ScalarVariable>
   <ScalarVariable
-  name = "Ro.T"
-  valueReference = "1020"
-  description = "Fixed device temperature if useHeatPort = false"
-  variability = "parameter" isDiscrete = "false"
-  causality = "internal"
-  alias = "noAlias"
-  classIndex = "1" classType = "rPar"
-  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
-  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
-  </ScalarVariable>
-  <ScalarVariable
   name = "Ro.R"
-  valueReference = "1021"
+  valueReference = "1020"
   description = "Resistance at temperature T_ref"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "2" classType = "rPar"
+  classIndex = "1" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "62" startColumn = "3" endLine = "63" endColumn = "40" fileWritable = "true">
   <Real useStart="true" start="0.0125" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="Ohm" displayUnit="Ohm" />
   </ScalarVariable>
   <ScalarVariable
   name = "Ro.T_ref"
-  valueReference = "1022"
+  valueReference = "1021"
   description = "Reference temperature"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "3" classType = "rPar"
+  classIndex = "2" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "64" startColumn = "3" endLine = "64" endColumn = "78" fileWritable = "true">
   <Real useStart="true" start="300.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
   </ScalarVariable>
   <ScalarVariable
   name = "Ro.alpha"
-  valueReference = "1023"
+  valueReference = "1022"
   description = "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "4" classType = "rPar"
+  classIndex = "3" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "65" startColumn = "3" endLine = "66" endColumn = "93" fileWritable = "true">
   <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="1/K" displayUnit="1/K" />
   </ScalarVariable>
   <ScalarVariable
-  name = "G.T"
-  valueReference = "1024"
+  name = "Ro.T"
+  valueReference = "1023"
   description = "Fixed device temperature if useHeatPort = false"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "5" classType = "rPar"
+  classIndex = "4" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
   <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
   </ScalarVariable>
   <ScalarVariable
   name = "G.G"
-  valueReference = "1025"
+  valueReference = "1024"
   description = "Conductance at temperature T_ref"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "6" classType = "rPar"
+  classIndex = "5" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "215" startColumn = "3" endLine = "216" endColumn = "41" fileWritable = "true">
   <Real useStart="true" start="0.565" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="S" displayUnit="S" />
   </ScalarVariable>
   <ScalarVariable
   name = "G.T_ref"
-  valueReference = "1026"
+  valueReference = "1025"
   description = "Reference temperature"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "7" classType = "rPar"
+  classIndex = "6" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "217" startColumn = "3" endLine = "217" endColumn = "78" fileWritable = "true">
   <Real useStart="true" start="300.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
   </ScalarVariable>
   <ScalarVariable
   name = "G.alpha"
-  valueReference = "1027"
+  valueReference = "1026"
   description = "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))"
   variability = "parameter" isDiscrete = "false"
   causality = "internal"
   alias = "noAlias"
-  classIndex = "8" classType = "rPar"
+  classIndex = "7" classType = "rPar"
   fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Basic.mo" startLine = "218" startColumn = "3" endLine = "219" endColumn = "98" fileWritable = "true">
   <Real useStart="true" start="0.0" fixed="true" useNominal="false" nominal="1.0" min="-1.7976931348623157E+308" max="1.7976931348623157E+308" unit="1/K" displayUnit="1/K" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "G.T"
+  valueReference = "1027"
+  description = "Fixed device temperature if useHeatPort = false"
+  variability = "parameter" isDiscrete = "false"
+  causality = "internal"
+  alias = "noAlias"
+  classIndex = "8" classType = "rPar"
+  fileName = "/home/tshort/openmodelica/build/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Interfaces.mo" startLine = "306" startColumn = "5" endLine = "307" endColumn = "99" fileWritable = "true">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" max="1.7976931348623157E+308" unit="K" displayUnit="degC" />
   </ScalarVariable>
   <ScalarVariable
   name = "C1.C"

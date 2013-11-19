@@ -1,57 +1,69 @@
 ```yaml script=scriptloader
-- tinytimer.js
+- lib/tinytimer.js
 ```
 
 ```yaml script=dataloader
-xml: chua.xml 
+xml: Modelica.Electrical.Analog.Examples.ChuaCircuit_init.xml 
 ```
 
-
-# OpenModelica simulation example
-## Modelica.Electrical.Analog.Examples.ChuaCircuit
-
-<img src=chua.svg class="pull-right" style="width:540px; background-color:#ffffff; border:2px solid gray" />
+<style media="screen" type="text/css">
+label {font-weight:normal; size: 0.9em}
+</style>
 
 
-```yaml jquery=jsonForm class="form-horizontal" name=frm 
-schema: 
-  stopTime:
-    type: string
-    title: Stop time, sec
-    default: 10000.0
-  intervals:
-    type: string
-    title: Output intervals
-    default: 500
-  tolerance:
-    type: string
-    title: Tolerance
-    default: 0.0001
-  solver: 
-    type: string
-    title: Solver
-    enum: 
-      - dassl
-      - euler
-      - rungekutta
-      - dasslwort
-      - dassltest
-  L: 
-    type: string
-    title: L, henries
-    default: 18.0
-  C1: 
-    type: string
-    title: C1, farads
-    default: 10.0
-  C2: 
-    type: string
-    title: C2, farads
-    default: 100.0
-form: 
-  - "*"
-params:
-  fieldHtmlClass: input-medium
+
+
+<h1>OpenModelica simulation example</h1>
+<h2>Modelica.Electrical.Analog.Examples.ChuaCircuit</h1></h2>
+
+<br/>
+<br/>
+
+<div id="status" style="text-align:center"><span id="statustext">
+Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
+
+<br/>
+
+<div class = "row">
+<div class = "col-md-5">
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+```yaml jquery=dform
+class : form-horizontal
+col1class : col-sm-8
+col2class : col-sm-4
+html: 
+  - name: stopTime
+    type: number
+    bs3caption: Stop time, sec
+    value: 10000.0
+  - name: intervals
+    type: number
+    bs3caption: Output intervals
+    value: 500
+  - name: tolerance
+    type: number
+    bs3caption: Tolerance
+    value: 0.0001
+  - name: L
+    type: number
+    bs3caption: L, henries
+    value: 18.0
+  - name: C1
+    type: number
+    bs3caption: C1, farads
+    value: 10.0
+  - name: C2
+    type: number
+    bs3caption: C2, farads
+    value: 100.0
 ```
 
 ```js
@@ -65,7 +77,6 @@ defex = $xml.find("DefaultExperiment")
 defex.attr("stopTime", stopTime)
 defex.attr("stepSize", +stopTime / intervals)
 defex.attr("tolerance", tolerance)
-defex.attr("solver", solver)
 
 // Set some model parameters
 $xml.find("ScalarVariable[name = 'L.L']").find("Real").attr("start", L)
@@ -75,7 +86,7 @@ $xml.find("ScalarVariable[name = 'C2.C']").find("Real").attr("start", C2)
 // Write out the initialization file
 xmlstring = new XMLSerializer().serializeToString(xml)
 
-$("#statustext").html('<img src="wait.gif" /> Simulation running')
+$("#statustext").html('Simulation running')
 $("#statustimer").html("");
 $('#statustimer').tinyTimer({ from: Date.now() });
 
@@ -95,18 +106,15 @@ wworker.addEventListener('error', function(event) {
 
 ```
 
-<div id="status" style="text-align:center"><span id="statustext">
-Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
-## Results
-
-<div id="yaxisform"> </div>
 
 ```js
 // read the csv file with the simulation results
 
 wworker.addEventListener("message", function(e) {
     $("#statustext").html(e.data.status)
+    timer.stop();
+    isRunning = false
     x = $.csv.toArrays(e.data.csv, {onParseValue: $.csv.hooks.castToScalar})
     
     // `header` has the column names. The first is the time, and the rest
@@ -118,59 +126,70 @@ wworker.addEventListener("message", function(e) {
     if (typeof(graphvarX) == "undefined") graphvarX = header[0];
     
     var jsonform = {
-      schema: {
-        graphvar: {
-          type: "string",
-          title: "Plot variable",
-          default: graphvar,
-          enum: header
-        }
-      },
-      form: [
-        {
-          key: "graphvar",
-          onChange: function (evt) {
-            calculate_forms();
-            $("#plotdiv").calculate();
-          }
-        }
-      ]
-    };
+      html: {
+        type: "select",
+        bs3caption: "Plot variable",
+        name: "graphvar",
+        selectvalue: graphvar,
+        choices: header
+    }};
     var jsonformX = {
-      schema: {
-        graphvarX: {
-          type: "string",
-          default: graphvarX,
-          enum: x.slice(0,1)[0]
-        }
-      },
-      form: [
-        {
-          key: "graphvarX",
-          onChange: function (evt) {
-            calculate_forms();
-            $("#plotdiv").calculate();
-          }
-        }
-      ]
-    };
+      html: {
+        type: "select",
+        bs3caption: "",
+        name: "graphvarX",
+        selectvalue: graphvarX,
+        choices: header
+    }};
+    updatefun = function (evt) {
+        calculate_forms();
+        $("#plotdiv").calculate();
+    }
     
-    // $(dom_ele).children(".jsresult").html("");
-    // $(dom_ele).children(".jsresult").jsonForm(jsonform);
+    
     $("#yaxisform").html("");
-    $("#yaxisform").jsonForm(jsonform);
+    $("#yaxisform").dform(jsonform);
+    $("#yaxisform").change(updatefun);
     $("#xaxisform").html("");
-    $("#xaxisform").jsonForm(jsonformX);
-    timer.stop();
+    $("#xaxisform").dform(jsonformX);
+    $("#xaxisform").change(updatefun);
     $("#plotdiv").calculate();
-    isRunning = false
     
 }, false);
 
 ```
 
+</div>
+
+
+
+<div class = "col-md-7">
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="mytab">
+  <li class="active"><a href="#model" data-toggle="tab">Model</a></li>
+  <li><a href="#results" data-toggle="tab">Results</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <!-- Model pane -->
+  <div class="tab-pane active" id="model">
+
+<img src="chua.svg" style="width:100%; background-color:#ffffff; border:2px solid gray" />
+
+  </div>
+
+  <!-- Results pane -->
+  <div class="tab-pane" id="results">
+
+</br>
+
+<div id="yaxisform" style="width:15em; position:relative"> </div>
+
 ```js id=plotdiv
 if (typeof(header) != "undefined") {
+    $("#mytab a:last").tab("show"); // Select last tab
     yidx = header.indexOf(graphvar);
     xidx = header.indexOf(graphvarX);
     // pick out the column to plot
@@ -179,7 +198,15 @@ if (typeof(header) != "undefined") {
 }
 ```
 
-<div id="xaxisform" style="left:200px; width:300px; position:relative"> </div>
+<div id="xaxisform" class="center-block" style="text-align:center; width:15em; position:relative"> </div>
+
+
+  </div>
+</div>
+
+</div>
+</div>
+
 
 ## Information
 
