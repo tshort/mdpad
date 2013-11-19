@@ -25,7 +25,7 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 <br/>
 
 <div class = "row">
-<div class = "col-md-5">
+<div class = "col-md-4">
 
 <br/>
 <br/>
@@ -37,8 +37,8 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 
 ```yaml jquery=dform
 class : form-horizontal
-col1class : col-sm-8
-col2class : col-sm-4
+col1class : col-sm-7
+col2class : col-sm-5
 html: 
   - name: stopTime
     type: number
@@ -162,6 +162,8 @@ wworker.addEventListener("message", function(e) {
 </div>
 
 
+<div class = "col-md-1">
+</div>
 
 <div class = "col-md-7">
 

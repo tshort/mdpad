@@ -1,22 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  background-color: honeydew;
-  font: 12pt Georgia, 'DejaVu Serif', serif;
-  line-height: 140%;
-  max-width:72em;
-  width: 60em;
-  padding:1em;
-  margin: 2em auto 2em auto;
-}
-
 pre.jsinput { background-color: white; font-family: monospace;
     margin-top:0em; margin-bottom:0em;
     display:none;
@@ -51,10 +32,4 @@ div.yamlresult div.textresult {
     /\* margin-top:0em; margin-bottom:0em; \*/
     /\* background-color: #fbf6df; \*/
     /\* display:inline; \*/
-}
-
-/* fix a wierd Bootstrap bug here: */
-/* http://stackoverflow.com/questions/13656098/css-content-property-forces-a-clear-when-set-to  */
-.control-group::before, .form-horizontal .control-group::after {
-   content: none;
 }
