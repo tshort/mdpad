@@ -6,13 +6,17 @@ This example uses [Numeric Javascript](http://www.numericjs.com/).
 
 We'll plot a sinusoidal wave at different frequencies.
 
-```yaml jquery=jsonForm
-schema:
-  freq:
-    title: Frequency in per unit
+```yaml jquery=dform
+type: div
+class: row
+html:
+  type: div
+  class: col-md-3 
+  html:
+    name: freq
     type: number
-    default: 3
-form: ["*"]
+    bs3caption: Frequency in per unit
+    value: 3
 ```
 
 Here's a plot based on the frequency above:
