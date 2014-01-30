@@ -259,11 +259,11 @@ html:
       type : text
       value : 06/01/2013
       datepicker:
-    <!-- - name: mph -->
-    <!--   type: slider -->
-    <!--   value: 65 -->
-    <!--   step: 2 -->
-    <!--   bs3caption: Speed, mph -->
+    - name: mph
+      type: inputslider
+      value: 65
+      step: 2
+      bs3caption: Speed, mph
 ```
 
 ```js 

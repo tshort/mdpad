@@ -1,20 +1,17 @@
+# OpenModelica simulation example
+## Modelica.Electrical.Analog.Examples.Rectifier
+
 ```yaml script=scriptloader
 - lib/tinytimer.js
 ```
 
 ```yaml script=dataloader
-xml: Modelica.Electrical.Analog.Examples.Rectifier_init.xml 
+xml: Modelica.Electrical.Analog.Examples.Rectifier_init.xml
 ```
 
 <style media="screen" type="text/css">
 label {font-weight:normal; size: 0.9em}
 </style>
-
-
-
-
-<h1>OpenModelica simulation example</h1>
-<h2>Modelica.Electrical.Analog.Examples.Rectifier</h1></h2>
 
 <br/>
 <br/>
@@ -31,15 +28,12 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-
 
 ```yaml jquery=dform
 class : form-horizontal
 col1class : col-sm-7
 col2class : col-sm-5
-html: 
+html:
   - name: stopTime
     type: number
     bs3caption: Stop time, sec
@@ -52,14 +46,6 @@ html:
     type: number
     bs3caption: Tolerance
     value: 0.0001
-  - name: LAC
-    type: number
-    bs3caption: Lac, henries
-    value: 0.00006
-  - name: CDC
-    type: number
-    bs3caption: Cdc, farads
-    value: 0.015
 ```
 
 ```js
@@ -75,8 +61,8 @@ defex.attr("stepSize", +stopTime / intervals)
 defex.attr("tolerance", tolerance)
 
 // Set some model parameters
-$xml.find("ScalarVariable[name = 'LAC']").find("Real").attr("start", LAC)
-$xml.find("ScalarVariable[name = 'CDC']").find("Real").attr("start", CDC)
+// Example:
+// $xml.find("ScalarVariable[name = 'LAC']").find("Real").attr("start", LAC)
 
 // Write out the initialization file
 xmlstring = new XMLSerializer().serializeToString(xml)
@@ -90,7 +76,7 @@ timer = $("#statustimer").data("tinyTimer")
 // Start the simulation!
 basename = "Modelica.Electrical.Analog.Examples.Rectifier"
 
-if (typeof(wworker) != "undefined" && isRunning) wworker.terminate() 
+if (typeof(wworker) != "undefined" && isRunning) wworker.terminate()
 if (typeof(wworker) == "undefined" || isRunning) wworker = new Worker(basename + ".js")
 isRunning = true
 
@@ -111,15 +97,15 @@ wworker.addEventListener("message", function(e) {
     timer.stop();
     isRunning = false
     x = $.csv.toArrays(e.data.csv, {onParseValue: $.csv.hooks.castToScalar})
-    
+
     // `header` has the column names. The first is the time, and the rest
     // of the columns are the variables.
     header = x.slice(0,1)[0]
-    
+
     // Select graph variables with a select box based on the header values
     if (typeof(graphvar) == "undefined") graphvar = header[1];
     if (typeof(graphvarX) == "undefined") graphvarX = header[0];
-    
+
     var jsonform = {
       html: {
         type: "select",
@@ -140,8 +126,8 @@ wworker.addEventListener("message", function(e) {
         calculate_forms();
         $("#plotdiv").calculate();
     }
-    
-    
+
+
     $("#yaxisform").html("");
     $("#yaxisform").dform(jsonform);
     $("#yaxisform").change(updatefun);
@@ -149,7 +135,7 @@ wworker.addEventListener("message", function(e) {
     $("#xaxisform").dform(jsonformX);
     $("#xaxisform").change(updatefun);
     $("#plotdiv").calculate();
-    
+
 }, false);
 
 ```
@@ -203,7 +189,6 @@ if (typeof(header) != "undefined") {
 
 </div>
 </div>
-
 
 
 ## Comments

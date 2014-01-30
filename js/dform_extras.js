@@ -63,3 +63,13 @@ $.dform.subscribe("value", function(options, type) {
         this.attr("selected", "selected");
     }
 });
+
+
+var _getOptions = function(type, options) {
+    return $.withKeys(options, $.keyset($.ui[type]["prototype"]["options"]));
+}
+
+// Like "slider", except it includes an input next to it that is linked.
+$.dform.addType("inputslider", function(options) {
+    return $("<div>").dform('attr', options).slider(_getOptions("inputslider", options));
+},  $.isFunction($.fn.slider));
