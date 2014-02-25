@@ -271,6 +271,5 @@ println("name = " + name)
 println("age = " + age)
 println("state = " + state)
 println("date = " + date)
-<!-- println("speed = " + mph + " mph") -->
 ```
 
