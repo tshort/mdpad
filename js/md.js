@@ -3,7 +3,7 @@
 // var a=1
 // ```
 //
-// to 
+// to
 //
 // <div class='jsblock' a=x b=y>
 //   <pre class='jsinput'>
@@ -45,53 +45,25 @@ var _Templater = {
             {
               type    : 'lang',
               filter  : function(text) {
-                text = text.replace(/(?:^|\n)```js(.*)\n([\s\S]*?)\n```/g,
-                    function(wholeMatch,m1,m2) {
-                        var extras = m1;
-                        var codeblock = m2;
-              
-                        codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
-                        codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
-              
-                        codeblock = "<div class='jsblock' " + extras + " run='normal'><pre class='jsinput'><code>" + codeblock + 
-                                      "\n</code></pre><div class = 'jsresult'></div></div>";
-              
-                        return codeblock;
-                    }
-                );
-                return text;
-              }
-            },
-            {
-              type    : 'lang',
-              filter  : function(text) {
-                text = text.replace(/(?:^|\n)```(yaml|text)(.*)\n([\s\S]*?)\n```/g,
+                  text = text.replace(/(?:^|\n)```(js|yaml|emblem|slim|text) *(?:\n *#\:|\n *\\\:|\n *\/\/\:)? *(.*)\n([\s\S]*?)\n```/g,
                     function(wholeMatch,m1,m2,m3) {
                         var blockname = m1;
                         var extras = m2;
                         var codeblock = m3;
 
-                        if (blockname == "yaml") {
-                            mainclass = "yamlblock";
-                            inputclass = "yamlinput";
-                            resultclass = "yamlresult";
-                        } else {
-                            mainclass = "textblock";
-                            inputclass = "textinput";
-                            resultclass = "textresult";
-                        }
-              
                         codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
                         codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
-             
+
                         // add class="" if it's not there
                         if (!/class=/.test(extras)) extras = extras + ' class=""';
-                        // add the yamlblock class
-                        extras = extras.replace(/(.*class=".*)(.*".*)/,"$1 " + mainclass + "$2");
-                        codeblock = "<div " + extras + " run='normal'><pre class='" + inputclass + 
-                                    "'><code>" + codeblock + "\n</code></pre><div class = '" + 
-                                    resultclass + "'></div></div>";
-              
+                        // add the class
+                        extras = extras.replace(/(.*class=".*)(.*".*)/,"$1mdblock$2");
+                        // add default run mode if it's not specified
+                        if (!/run=/.test(extras)) extras = extras + ' run="' + (blockname == "js" ? "normal" : "init") + '"';
+                        extras = extras + ' lang="' + blockname + '"';
+                        codeblock = "<div " + extras + "><pre class='mdinput'><code>" +
+                            codeblock + "\n</code></pre><div class = 'mdresult'></div></div>";
+
                         return codeblock;
                     }
                 );

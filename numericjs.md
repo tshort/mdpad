@@ -2,11 +2,17 @@
 
 # Numeric Javascript example
 
+```yaml
+         #: script=scriptloader
+- lib/numeric-1.2.6.min.js
+```
+
 This example uses [Numeric Javascript](http://www.numericjs.com/). 
 
 We'll plot a sinusoidal wave at different frequencies.
 
-```yaml jquery=dform
+```yaml
+        #: jquery=dform
 type: div
 class: row
 html:

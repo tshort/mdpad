@@ -11,7 +11,7 @@ See [here](example.md) for the Markdown code for this page.
 Normally, I hide the JavaScript and YAML blocks, but here, you can use
 the following button to toggle the visibility of these blocks.
 
-<input type="button" value="Toggle block visibility" onclick="$('.jsinput').toggle();$('.yamlinput').toggle()">
+<input type="button" value="Toggle block visibility" onclick="$('.mdinput').toggle();">
 
 Here's some basic data entry using YAML.
 
@@ -19,13 +19,15 @@ Here's some basic data entry using YAML.
 
 Here's some basic data entry using YAML.
 
-```yaml name=d
+```yaml
+         #: name=d
 rac: [3.551, 2.232, 1.402, 1.114, 0.882, 0.7]
 gmr: [0.0055611962035177, 0.00700459393067038, 0.00882262274842038, 0.00990159326021141, 0.0111125174323268, 0.0124715326552536]
 conductors: [6, 4, 2, 1, 1/0, 2/0]
 ```
 
-```yaml name=rac
+```yaml
+         #: name=rac
 [3.551, 2.232, 1.402, 1.114, 0.882, 0.7]
 ```
 Now, here's some of that data spit back:
@@ -51,7 +53,8 @@ to generate them. Here's an example using the
 generate the form inputs. Everytime a form element changes, the
 document re-runs.
 
-```yaml jquery=dform
+```yaml
+         #: jquery=dform
 type: div
 class: row
 html:
@@ -98,7 +101,8 @@ println(10 * age);
 Here's plotting with the 
 [Flot package](http://www.flotcharts.org).
 
-```yaml jquery=dform
+```yaml
+         #: jquery=dform
 name : k
 caption : k
 type : number
@@ -115,7 +119,8 @@ plot([series], plotoptions)
 
 Note that plot options are given using YAML for this example.
 
-```yaml name=plotoptions
+```yaml
+         #: name=plotoptions
 width: 800px 
 series: 
     lines: 
@@ -141,7 +146,8 @@ generate fancier output by using a header as follows:
 
 Here is an example:
 
-```js output=markdown
+```js
+         #: output=markdown
 println("## generated heading")
 println("some *italic* and **bold** text")
 ```

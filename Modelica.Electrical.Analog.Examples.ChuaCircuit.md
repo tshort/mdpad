@@ -1,8 +1,10 @@
-```yaml script=scriptloader
+```yaml
+         #: script=scriptloader
 - lib/tinytimer.js
 ```
 
-```yaml script=dataloader
+```yaml
+         #: script=dataloader
 xml: Modelica.Electrical.Analog.Examples.ChuaCircuit_init.xml 
 ```
 
@@ -35,7 +37,8 @@ Simulation loading</span>. &nbsp Time: <span id="statustimer"> </span></div>
 <br/>
 
 
-```yaml jquery=dform
+```yaml
+         #: jquery=dform
 class : form-horizontal
 col1class : col-sm-7
 col2class : col-sm-5
@@ -189,7 +192,8 @@ wworker.addEventListener("message", function(e) {
 
 <div id="yaxisform" style="width:15em; position:relative"> </div>
 
-```js id=plotdiv
+```js
+         //: id=plotdiv
 if (typeof(header) != "undefined") {
     $("#mytab a:last").tab("show"); // Select last tab
     yidx = header.indexOf(graphvar);

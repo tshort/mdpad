@@ -3,6 +3,7 @@
 
 See [yaml_usage.md](yaml_usage.md) for the Markdown for this page.
 
+JavaScript blocks are only one type of block available in mdpad.
 [YAML](www.yaml.org) and text blocks have a number of uses in *mdpad*,
 including loading scripts and loading data. YAML is a text format for
 describing nested data structures, including objects and arrays. A
@@ -33,7 +34,7 @@ keyword `text`. Here is an example:
     culpa qui officia deserunt mollit anim id est laborum.
     ```
 
-All YAML and text blocks load and run prior to any of the JavaScript
+By default, all YAML and text blocks load and run prior to any of the JavaScript
 blocks.
 
 The `name=txt` in the example above is a parameter that indicates that
@@ -44,9 +45,15 @@ wrapper for this block. This is useful for styling. Here are common
 parameters:
 
 - *name=x* -- Assign the data to JavaScript variable `x`.
+- *run=x* -- Options to control execution of a block. Options for `x`
+  include "init" or "normal". "init" means run initially after the page
+  is loaded, the default for all blocks other than "js" blocks. "normal"
+  means run every time a form element is updated, the default for "js"
+  blocks.
+- *outputid=x* -- Place any output into the HTML id `x`.
 - *script=s* -- Pass the results to the JavaScript function `s`.
 - *jquery=s* -- Pass the results to the jQuery-style JavaScript
-  function `s` as in `$obj.s(value)`. The function operations from the
+  function `s` as in `$obj.s(value)`. The function operates from the
   perspective of the result block of the section.
 - *class=cls* -- Assign class `cls` to the div wrapper surrounding
   this block.
@@ -68,7 +75,8 @@ parameters. Here are some common entries along with their use:
 
 Here is a YAML block:
 
-```yaml name=obj
+```yaml
+         #: name=obj
 foo: "bar" baz: 
   - "qux"
   - "quxx"
@@ -84,7 +92,8 @@ emptyString: ""
 
 Here is a text block:
 
-```text name=lorem
+```text
+        #: name=lorem
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -130,7 +139,8 @@ JavaScript variables `a`, `b`, `c`, `d`, and `e`. These all load
 asynchronously when the page is first loaded. The initial page
 calculation is delayed until all of this data has been read.
 
-```yaml script=dataloader
+```yaml
+        #: script=dataloader
 a: data/t.json
 b: data/t.csv
 c: data/t.xml
@@ -155,7 +165,8 @@ from [js-yaml](https://github.com/nodeca/js-yaml).
 There isn't a CSV block, but you can make something like that as
 follows:
 
-```text script="$.csv.toArrays" name=z
+```text
+        #: script="$.csv.toArrays" name=z
 a,b,c
 1,apples,x
 2,bananas,y
@@ -203,7 +214,7 @@ I have included some "subscriber" extensions to jQuery.dForm:
   - *selectvalue* - This subscriber allows one to set the default for
     the select choices or options.
 
-All of the apps [here](http://distributionhandbook.com/calculators/)
+Many of the apps [here](http://distributionhandbook.com/calculators/)
 use dform with Bootstrap 3 with both vertical and horizontal form
 arrangements.
 
@@ -216,7 +227,8 @@ interesting alternatives.
 Here is an example using jquery.dform:
 
 
-```yaml jquery=dform
+```yaml
+        #: jquery=dform
 type: div
 class: row
 html:
@@ -268,3 +280,73 @@ println("state = " + state)
 println("date = " + date)
 ```
 
+# HTML Templates with Emblem
+
+The [Emblem](http://emblemjs.com/) package is great for concisely entering HTML.
+I use this for both input forms and output templates. Here is an example of the
+same form from above, but this time with Emblem (and with different variable
+names). Bootstrap elements are also used to control layout. Not all of the dform
+form elements can be replicated (easily), so things like the date picker are
+skipped.
+
+```yaml
+         #: name=formdata
+states: [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District Of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, PALAU, Pennsylvania, PUERTO RICO, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming]
+colors:
+  - red
+  - blue
+  - green
+  - gray
+  - white
+  - black
+```
+
+```emblem
+form.form
+  .row
+    .col-md-4
+      .form-group
+        label.control-label Name
+        input.form-control name="name2" value="Bob"
+    .col-md-4
+      .form-group
+        label.control-label Age
+        input.form-control name="age2" type="number" step="5" min="0" value="37"
+    .col-md-4
+      .form-group
+        .checkbox
+          label Fully done
+          input# name="done2" type="checkbox" checked=false
+  .row
+    .col-md-4
+      .form-group
+        label.control-label Color
+        select.form-control.input-sm name="color2"
+          each formdata.colors
+            option value=this = this
+    .col-md-4
+      .form-group
+        label.control-label State
+        select.form-control.input-sm name="state2"
+          each formdata.states
+            option value=this = this
+```
+
+We can also use Emblem to display output. Here is an example regurgitating the
+input above in a table:
+
+```emblem
+          \: run=normal
+table
+  tbody
+    tr
+      th Name
+      th Age
+      th Color
+      th State
+    tr
+      td = name2
+      td = age2
+      td = color2
+      td = state2
+```

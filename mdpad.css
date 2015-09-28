@@ -1,35 +1,18 @@
-pre.jsinput { background-color: white; font-family: monospace;
+
+
+pre.mdinput { background-color: white; font-family: monospace;
     margin-top:0em; margin-bottom:0em;
     display:none;
 }
 
-div.jsplain { font-family: monospace;
-}
-
-
-div.jsresult {
+div.mdresult {
     margin-top:0em; margin-bottom:0em;
     /\* background-color: #fbf6df; \*/
     /\* display:inline; \*/
 }
-div.jsresultdone {
+div.mdresultdone {
     background-color: #FFD55E;
     margin-top:0em; margin-bottom:0em;
     /\* display:inline; \*/
 }
 
-pre.yamlinput, pre.textinput {   
-    background-color: white; font-family: monospace;
-    margin-top:0em; margin-bottom:0em;
-    display:none;
-}
-
-div.yamlplain { font-family: monospace;
-}
-
-
-div.yamlresult div.textresult {
-    /\* margin-top:0em; margin-bottom:0em; \*/
-    /\* background-color: #fbf6df; \*/
-    /\* display:inline; \*/
-}

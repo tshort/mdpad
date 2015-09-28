@@ -111,14 +111,25 @@ easier to read and write than JSON or XML. Here is an example:
 Now, in a JavaScript block, you can access `d.fred` (`27`) or
 `d.wilma` (the array `[1,2,3]`).
 
-*Form elements* -- Using the `freq` = `___(3.0)` notation described
-above is one way to enter form elements. For more complicated form
-arrangements, you can directly use HTML or use YAML. I like using the
-[jQuery.dForm package](http://daffl.github.io/jquery.dform/) to create
-form elements. You can specify form element characteristics as YAML or
-JSON, and nice-looking forms are generated with the option of using
-[Bootstrap 3](http://getbootstrap.com). When the user updates a form
-element, the whole page recalculates.
+*Form elements* -- Using the `freq` = `___(3.0)` notation described above is one
+way to enter form elements. This is only useful for simple inputs. For more
+complicated form arrangements, you can directly use HTML or use YAML. I like
+using the [jQuery.dForm package](http://daffl.github.io/jquery.dform/) to create
+form elements. You can specify form element characteristics as YAML or JSON, and
+nice-looking forms are generated with the option of using
+[Bootstrap 3](http://getbootstrap.com). When the user updates a form element,
+the whole page recalculates.
+
+*HTML templates* -- The [Emblem](http://emblemjs.com/) package is great for
+concisely entering HTML. I use this for both input forms and output templates.
+Here's a simple example:
+ 
+    ```emblem 
+    ul
+      li bullet 1
+      li bullet 2
+      li bullet 3
+    ```
 
 ## Installing / Using
 
@@ -166,7 +177,7 @@ right now.
 
 ## Current status
 
-Everything's pretty much alpha stage right now. The main code is about
+Everything's pretty much beta stage right now. The main code is about
 200 lines of code. Many of the libraries used (Flot, yaml-js, showdown,
 etc.) are pretty mature.
 
