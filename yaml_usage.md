@@ -71,6 +71,23 @@ parameters. Here are some common entries along with their use:
   Supported formats include JSON, CSV, XML, YAML, and text.
 
 
+To specify parameters on a block, several formats are available. The following are all equivalent:
+
+` ```yaml script=dataloader`
+
+` ```{yaml script=dataloader}`
+
+` ```{.yaml script=dataloader}`
+
+    ```yaml
+             #: script=dataloader
+
+The last one uses a comment character followed by a colon. The following are supported:
+`//:`, `#:`, and `\:` to cover JavaScript, YAML, and Emblem comments. These formats
+are all supported, so mdpad documents look better on Github and in editors. The first
+doesn't look good on Github, but the rest look good. The last version (using the first
+comment line of the block) is the most compatible.
+
 # Basic YAML and text input
 
 Here is a YAML block:

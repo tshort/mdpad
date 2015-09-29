@@ -144,6 +144,11 @@ The base html file is used to load the appropriate libraries. You may
 want to change this to include custom headers or footers for your
 site. 
 
+For editing *mdpad* files, [Atom](https://atom.io/) and
+[SublimeText](http://www.sublimetext.com/) work well. Both of these have
+good support for syntax highlighting JavaScript and YAML blocks within
+Markdown files.
+
 ## Inspiration / Ideas
 
 * [Julia Markdown](https://github.com/tshort/JuliaMarkdown)
