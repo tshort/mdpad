@@ -181,7 +181,7 @@ wworker.addEventListener("message", function(e) {
   <!-- Model pane -->
   <div class="tab-pane active" id="model">
 
-<img src="chua.svg" style="width:100%; background-color:#ffffff; border:2px solid gray" />
+<img src="ChuaCircuit.svg" style="width:100%; background-color:#ffffff; border:2px solid gray" />
 
   </div>
 
