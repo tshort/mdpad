@@ -5,11 +5,11 @@ Adjust the frequency, and see the plot update:
 
 freq = ___(3.0) 
 
-```js output=markdown 
+```{js output=markdown}
 println("## Results")
 ```
 
-```js
+```{js}
 x = numeric.linspace(0,6.3,200)
 y = numeric.cos(numeric.mul(x,freq))
 
