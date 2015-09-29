@@ -1,3 +1,6 @@
+```{yaml script=scriptloader}
+- lib/numeric-1.2.6.min.js
+```
 
 ## Simple function plotter
 

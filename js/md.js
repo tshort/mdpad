@@ -45,12 +45,14 @@ var _Templater = {
             {
               type    : 'lang',
               filter  : function(text) {
-                  text = text.replace(/(?:^|\n)```(js|yaml|emblem|slim|text) *(?:\n *#\:|\n *\\\:|\n *\/\/\:)? *(.*)\n([\s\S]*?)\n```/g,
+                  text = text.replace(/(?:^|\n)```\{?(js|yaml|emblem|slim|text) *(?:\n *#\:|\n *\\\:|\n *\/\/\:)? *([^\}\n]*)\}?\n([\s\S]*?)\n```/g,
                     function(wholeMatch,m1,m2,m3) {
                         var blockname = m1;
                         var extras = m2;
                         var codeblock = m3;
-
+                        console.log(blockname)
+                        console.log(extras)
+                        console.log(codeblock)
                         codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
                         codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
 
