@@ -73,11 +73,11 @@ parameters. Here are some common entries along with their use:
 
 To specify parameters on a block, several formats are available. The following are all equivalent:
 
-` ```yaml script=dataloader`
-
-` ```{yaml script=dataloader}`
-
-` ```{.yaml script=dataloader}`
+    ```yaml script=dataloader
+   
+    ```{yaml script=dataloader}
+   
+    ```{.yaml script=dataloader}
 
     ```yaml
              #: script=dataloader
