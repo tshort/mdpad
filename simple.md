@@ -6,6 +6,7 @@ Adjust the frequency, and see the plot update:
 freq = ___(3.0) 
 
 ```{js output=markdown}
+// comment
 println("## Results")
 ```
 
