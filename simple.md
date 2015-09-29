@@ -1,4 +1,4 @@
-```{yaml script=scriptloader}
+```{.yaml script=scriptloader}
 - lib/numeric-1.2.6.min.js
 ```
 
@@ -8,12 +8,12 @@ Adjust the frequency, and see the plot update:
 
 freq = ___(3.0) 
 
-```{js output=markdown}
+```{.js output=markdown}
 // comment
 println("## Results")
 ```
 
-```{js}
+```{.js}
 x = numeric.linspace(0,6.3,200)
 y = numeric.cos(numeric.mul(x,freq))
 
