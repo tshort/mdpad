@@ -4,7 +4,7 @@
 
 *mdpad* pages are meant to be an easy way to make simple web
 interfaces or workbooks. These can be hosted as static pages.
-Interactivity is provided by JavaScript. 
+Interactivity is provided by JavaScript.
 
 The target audience is someone who knows a bit of JavaScript and wants
 to make simple web applications. The key feature of *mdpad* is easy
@@ -31,22 +31,22 @@ Markdown:
     ## Simple function plotter
 
     Adjust the frequency, and see the plot update:
-    
-    freq = ___(3.0) 
-    
-    ```js output=markdown 
+
+    freq = ___(3.0)
+
+    ```js output=markdown
     println("## Results")
     ```
 
     ```js
     x = numeric.linspace(0,6.3,200)
     y = numeric.cos(numeric.mul(x,freq))
-    
+
     series = _.zip(x,y)       // converts to [[x1,y1],[x2,y2],...]
-    
+
     plot([series])
     ```
-    
+
 When run, it will look like this in a browser:
 
 ![mdpad screen capture](https://tshort.github.com/mdpad/mdpad_screenshot.png)
@@ -54,16 +54,16 @@ When run, it will look like this in a browser:
 In the JavaScript block header, you can specify the result type as
 `markdown` for Markdown output (also useful for HTML, since Markdown
 files can contain HTML). `output` can also be `"none"` to suppress
-output (not implemented, yet). 
+output (not implemented, yet).
 
 In the example above, a text entry box is specified with `freq` =
 `___(3.0)`. In JavaScript, `freq` is assigned to the value entered in the
 text box (a string). The default value is "3.0". Any form elements
-will be translated into JavaScript variables. 
+will be translated into JavaScript variables.
 
 Here are several examples:
 
-* `example.md` 
+* `example.md`
   ([Live results](https://tshort.github.com/mdpad/mdpad.html?example.md))
   ([Markdown](https://tshort.github.com/mdpad/example.md))
   -- Covers forms, data input, and plotting.
@@ -123,8 +123,8 @@ the whole page recalculates.
 *HTML templates* -- The [Emblem](http://emblemjs.com/) package is great for
 concisely entering HTML. I use this for both input forms and output templates.
 Here's a simple example:
- 
-    ```emblem 
+
+    ```emblem
     ul
       li bullet 1
       li bullet 2
@@ -142,12 +142,15 @@ Here, I'm running a server on my local computer on port 2000. The main
 html file is `mdpad.html`. This loads the *mdpad* page `example.md`.
 The base html file is used to load the appropriate libraries. You may
 want to change this to include custom headers or footers for your
-site. 
+site.
 
 For editing *mdpad* files, [Atom](https://atom.io/) and
 [SublimeText](http://www.sublimetext.com/) work well. Both of these have
 good support for syntax highlighting JavaScript and YAML blocks within
-Markdown files.
+Markdown files. I like Atom with the [markdown-folder package](https://github.com/melke/markdown-folder) that can
+fold and unfold headings and code blocks. Here is a demo:
+
+![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)
 
 ## Inspiration / Ideas
 
@@ -163,21 +166,21 @@ Markdown files.
 ## Infrastructure
 
 Most of the infrastructure for this was already in place for the web
-REPL. 
+REPL.
 
 *Markdown conversion* -- The Markdown is converted to HTML using a
 [Showdown](https://github.com/coreyti/showdown/) with extensions to
-handle input blocks and form elements. 
+handle input blocks and form elements.
 
-*Form inputs* -- The modifications for form elements are adapted from 
+*Form inputs* -- The modifications for form elements are adapted from
 [here](https://github.com/brikis98/wmd). Only one element is included
 right now.
 
 *Plotting* -- Plotting comes from the
-[Flot](http://www.flotcharts.org/) package. 
+[Flot](http://www.flotcharts.org/) package.
 
 *YAML* -- YAML conversion comes from the
-[js-yaml](https://github.com/nodeca/js-yaml) package. 
+[js-yaml](https://github.com/nodeca/js-yaml) package.
 
 
 ## Current status
