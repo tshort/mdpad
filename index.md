@@ -163,6 +163,13 @@ fold and unfold headings and code blocks. Here is a demo:
 
 ![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)
 
+The [atom-mdpad package](https://atom.io/packages/mdpad)
+is an extension that adds a live preview and snippets specific to mdpad. Here is
+an example with both the live preview and snippets are used. The live preview
+is an alternative to running a server on your local computer.
+
+![mdpad in action](https://github.com/tshort/atom-mdpad/raw/master/atom-mdpad.gif)
+
 ## Inspiration / Ideas
 
 * [Julia Markdown](https://github.com/tshort/JuliaMarkdown)
