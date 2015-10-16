@@ -12,7 +12,7 @@ $(document).ready(function() {
         url: window.location.search.substring(1),
         success: function (response) {
             var converter = new Showdown.converter({ extensions: ['md'] });
-            $('#main_markdown').html(converter.makeHtml(response)); 
+            $('#main_markdown').html(converter.makeHtml(response));
             deferred.resolve();
             $(".mdblock[run='init']").each(calculate_block);
             deferred.done(calculate);
@@ -60,7 +60,7 @@ function dataloader(x) {
             fun = dataloadermap[filetype] || "";
             eval(key + " = " + fun + "(content)");
             _dl_defer.resolve();
-        }); 
+        });
     });
 }
 
@@ -158,7 +158,7 @@ var converter = new Showdown.converter();
 var $active_element;
 
 function calculate_forms() {  // page calculation
-    var form_cmd = $(":input").map(read_form); 
+    var form_cmd = $(":input").map(read_form);
 }
 
 function calculate() {  // page calculation
@@ -171,8 +171,32 @@ function calculate() {  // page calculation
 }
 
 function plot(data, options) {  // uses Flot
-    pdiv = $('<div/>', {style: 'width:35em;height:25em'}).appendTo($active_element);
-    $.plot(pdiv, data, options);
+  var narg = 0
+  if (typeof arguments[narg] == 'string') {   // it's the output id
+    $el = $(arguments[narg])
+    narg += 1
+  } else {
+    $el = $active_element
+  }
+  function isSeries(x) {
+      return (Array.isArray(x) && Array.isArray(x[1])) ||
+             (typeof x == "object" && !Array.isArray(x));
+  }
+  if (Array.isArray(arguments[narg]) &&
+      isSeries(arguments[narg][0])) {   // all series given
+    var data = arguments[narg];
+    narg += 1
+  } else if (isSeries(arguments[narg])) {   // one series
+    data = [arguments[narg]];
+    narg += 1
+  } else if (Array.isArray(arguments[narg]) &&
+             Array.isArray(arguments[narg + 1])) {   // two single vectors
+    var data = [_.zip(arguments[narg], arguments[narg + 1])]; // converts to [[[x1,y1],[x2,y2],...]]
+    narg += 2;
+  }
+  var options = arguments[narg];
+  var pdiv = $('<div/>', {style: 'width:35em;height:25em'}).appendTo($el);
+  $.plot(pdiv, data, options);
 }
 
 jQuery.fn.calculate = function() {
@@ -186,5 +210,3 @@ return{
 }
 
 }();
-
-

@@ -28,7 +28,7 @@ conductors: [6, 4, 2, 1, 1/0, 2/0]
 
 ```yaml
          #: name=rac
-[3.551, 2.232, 1.402, 1.114, 0.882, 0.7]
+[3.551, 2.232, 1.402, 1.114, 0.882, 0.9]
 ```
 Now, here's some of that data spit back:
 
@@ -61,10 +61,10 @@ html:
   type: div
   class: col-md-4
   html:
-    - name: choice 
+    - name: choice
       type: select
       bs3caption: Choice
-      choices: 
+      choices:
         - "Choice-1"
         - "Second choice"
         - "This is third"
@@ -98,7 +98,7 @@ println(10 * age);
 
 # Plotting
 
-Here's plotting with the 
+Here's plotting with the
 [Flot package](http://www.flotcharts.org).
 
 ```yaml
@@ -113,25 +113,24 @@ value : 1.0
 ```js
 x = [1,2,3,4]
 y = _.map([3,5,9,10], function(x){return x * k;})
-series = _.zip(x,y)  // converts to [[x1,y1],[x2,y2],...]
-plot([series], plotoptions)
+plot(x, y, plotoptions)
 ```
 
 Note that plot options are given using YAML for this example.
 
 ```yaml
          #: name=plotoptions
-width: 800px 
-series: 
-    lines: 
+width: 800px
+series:
+    lines:
         show: true
-    points: 
-        show: true 
-xaxis: 
+    points:
+        show: true
+xaxis:
     min: 0
     max: 5
-grid: 
-    backgroundColor: 
+grid:
+    backgroundColor:
         colors: ["#fff", "#eee"]
 ```
 
@@ -140,7 +139,7 @@ grid:
 
 
 So far, scripts have all generated plain text. It is also possible to
-generate fancier output by using a header as follows: 
+generate fancier output by using a header as follows:
 
 ` ```js output=markdown`
 
