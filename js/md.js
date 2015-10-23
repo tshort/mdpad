@@ -15,7 +15,7 @@
 // </div>
 //
 
-
+(function(){
     var md = function(converter) {
         return [
             {
