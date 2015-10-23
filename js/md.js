@@ -15,31 +15,7 @@
 // </div>
 //
 
-var _Templater = {
-	format: function(template, values) {
-		//
-		// Utility function that replaces placeholders with parameterized values
-		//
-		// Example:
-		// Inputs:
-		// template = 'Here is some text: %text%'
-		// values = {'text', 'Hello I am text!'}
-		//
-		// Output:
-		// 'Here is some text: Hello I am text!'
-		//
-		// @param template The template to do replacements on.  Fields to be replaced should be surrounded
-		//                 by percentage signs (e.g. %field%)
-		// @param values A Javascript object literal containing the names of the fields to be replaced
-		//               along with the replacement values (e.g. {'field': 'Replacement text'}
-		for (value in values) {
-			template = template.replace(new RegExp('%' + value + '%', 'g'), values[value], 'g');
-		}
-		return template;
-	}
-}
 
-(function(){
     var md = function(converter) {
         return [
             {
