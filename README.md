@@ -159,6 +159,13 @@ is an alternative to running a server on your local computer.
 
 ![mdpad in action](https://github.com/tshort/atom-mdpad/raw/master/atom-mdpad.gif)
 
+Another alternative to the live preview is to use Atom to start a server. The
+[local-server-express](https://atom.io/packages/local-server-express) package
+works nicely for this. Once launched, this will open a browser. You can also use
+the [Browser Plus](https://atom.io/packages/browser-plus) package to load this
+right in Atom. With the live refresh feature, it works much like the Live
+Preview.
+
 ## Inspiration / Ideas
 
 * [Julia Markdown](https://github.com/tshort/JuliaMarkdown)
