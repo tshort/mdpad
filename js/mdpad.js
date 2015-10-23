@@ -142,7 +142,7 @@ function read_form() {
     if (this.type == "text") {
         window[this.name]  = this.value;
     } else if (this.type == "number") {
-        window[this.name]  = this.value;
+        window[this.name]  = Number(this.value);
     } else if (this.type == "radio" && this.checked) {
         window[this.name]  = this.value;
     } else if (this.type == "checkbox") {
