@@ -16,8 +16,8 @@ $.dform.subscribe("bs3caption", function(options, type) {
     var col2class = this.parent().attr("col2class");
     this.wrap("<div class='form-group'/>");
     if (type === "checkbox" || type === "radio") {
-        this.wrap("<label>" + options + "</label>").parent()
-            .wrap("<div class='"+type+"'/>").parent()
+		this.wrap("<label></label>").parent().append(options)
+                .wrap("<div class='" + type + "'/>").parent()
             .wrap("<div class='"+col2class+"'/>")
         if (col1class) {
             this.parent().parent().parent().before("<div class = '" + col1class + "'/>"); 
